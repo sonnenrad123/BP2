@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/20/2021 14:28:07
+-- Date Created: 05/20/2021 21:17:57
 -- Generated from EDMX file: D:\Projekti2020-2021\BP2\MusicCompetitionBP2\MusicCompetitionBP2\MusicCompetitionDb.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,110 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_CompetitorCompetiting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Competitings] DROP CONSTRAINT [FK_CompetitorCompetiting];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompetitionCompetiting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Competitings] DROP CONSTRAINT [FK_CompetitionCompetiting];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PublishingHouseOrganize]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Organizations] DROP CONSTRAINT [FK_PublishingHouseOrganize];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompetitionOrganize]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Organizations] DROP CONSTRAINT [FK_CompetitionOrganize];
+GO
+IF OBJECT_ID(N'[dbo].[FK_JuryMemberHiredFor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HiredForSet] DROP CONSTRAINT [FK_JuryMemberHiredFor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompetitionHiredFor]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[HiredForSet] DROP CONSTRAINT [FK_CompetitionHiredFor];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompetitionPossessesA]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PossessesASet] DROP CONSTRAINT [FK_CompetitionPossessesA];
+GO
+IF OBJECT_ID(N'[dbo].[FK_GenrePossessesA]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[PossessesASet] DROP CONSTRAINT [FK_GenrePossessesA];
+GO
+IF OBJECT_ID(N'[dbo].[FK_JuryMemberIsExpert]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[IsExpertSet] DROP CONSTRAINT [FK_JuryMemberIsExpert];
+GO
+IF OBJECT_ID(N'[dbo].[FK_GenreIsExpert]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[IsExpertSet] DROP CONSTRAINT [FK_GenreIsExpert];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CompetitingMusicPerformance]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MusicPerformances] DROP CONSTRAINT [FK_CompetitingMusicPerformance];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MusicPerformanceGenre]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MusicPerformances] DROP CONSTRAINT [FK_MusicPerformanceGenre];
+GO
+IF OBJECT_ID(N'[dbo].[FK_IsExpertEvaluate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Evaluations] DROP CONSTRAINT [FK_IsExpertEvaluate];
+GO
+IF OBJECT_ID(N'[dbo].[FK_MusicPerformanceEvaluate]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Evaluations] DROP CONSTRAINT [FK_MusicPerformanceEvaluate];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrganizeReserve]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Reservations] DROP CONSTRAINT [FK_OrganizeReserve];
+GO
+IF OBJECT_ID(N'[dbo].[FK_PerformanceHallReserve]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Reservations] DROP CONSTRAINT [FK_PerformanceHallReserve];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Competitor_inherits_Singer]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Singers_Competitor] DROP CONSTRAINT [FK_Competitor_inherits_Singer];
+GO
+IF OBJECT_ID(N'[dbo].[FK_JuryMember_inherits_Singer]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Singers_JuryMember] DROP CONSTRAINT [FK_JuryMember_inherits_Singer];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Singers]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Singers];
+GO
+IF OBJECT_ID(N'[dbo].[Competitions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Competitions];
+GO
+IF OBJECT_ID(N'[dbo].[Genres]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Genres];
+GO
+IF OBJECT_ID(N'[dbo].[MusicPerformances]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[MusicPerformances];
+GO
+IF OBJECT_ID(N'[dbo].[PublishingHouses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PublishingHouses];
+GO
+IF OBJECT_ID(N'[dbo].[PerformanceHalls]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PerformanceHalls];
+GO
+IF OBJECT_ID(N'[dbo].[Competitings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Competitings];
+GO
+IF OBJECT_ID(N'[dbo].[Organizations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Organizations];
+GO
+IF OBJECT_ID(N'[dbo].[HiredForSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[HiredForSet];
+GO
+IF OBJECT_ID(N'[dbo].[PossessesASet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PossessesASet];
+GO
+IF OBJECT_ID(N'[dbo].[IsExpertSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[IsExpertSet];
+GO
+IF OBJECT_ID(N'[dbo].[Evaluations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Evaluations];
+GO
+IF OBJECT_ID(N'[dbo].[Reservations]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Reservations];
+GO
+IF OBJECT_ID(N'[dbo].[Singers_Competitor]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Singers_Competitor];
+GO
+IF OBJECT_ID(N'[dbo].[Singers_JuryMember]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Singers_JuryMember];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -29,7 +128,7 @@ GO
 
 -- Creating table 'Singers'
 CREATE TABLE [dbo].[Singers] (
-    [JMBG_SIN] bigint IDENTITY(1,1) NOT NULL,
+    [JMBG_SIN] bigint  NOT NULL,
     [FIRSTNAME_SIN] nvarchar(max)  NOT NULL,
     [LASTNAME_SIN] nvarchar(max)  NOT NULL,
     [BIRTHDATE_SIN] datetime  NOT NULL,
@@ -37,7 +136,8 @@ CREATE TABLE [dbo].[Singers] (
     [PHONE_NO_SIN] nvarchar(max)  NOT NULL,
     [ADDRESS_SIN_HOME_NUMBER] nvarchar(max)  NOT NULL,
     [ADDRESS_SIN_CITY] nvarchar(max)  NOT NULL,
-    [ADDRESS_SIN_STREET] nvarchar(max)  NOT NULL
+    [ADDRESS_SIN_STREET] nvarchar(max)  NOT NULL,
+    [Type] nvarchar(max)  NOT NULL
 );
 GO
 

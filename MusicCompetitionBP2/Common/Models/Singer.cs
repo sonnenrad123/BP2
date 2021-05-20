@@ -25,7 +25,12 @@ namespace Common.Models
         public System.DateTime BIRTHDATE_SIN { get; set; }
         public string EMAIL_SIN { get; set; }
         public string PHONE_NO_SIN { get; set; }
-
+        public string Type { get; set; }
         public ADDRESS ADDRESS_SIN { get; set; }
+        public override string ToString()
+        {
+            return "JMBG: " + JMBG_SIN + "FirstName: " + FIRSTNAME_SIN + "LastName: " + LASTNAME_SIN + "BirthDate: " + BIRTHDATE_SIN.ToString("dd.MM.yy") + "Email: " + EMAIL_SIN + "PhoneNo: " + PHONE_NO_SIN +
+                "Address: " + ADDRESS_SIN.STREET + ", " + ADDRESS_SIN.HOME_NUMBER + ", " + ADDRESS_SIN.CITY + ".";
+        }
     }
 }

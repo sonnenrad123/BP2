@@ -98,7 +98,7 @@
     <Key>
       <PropertyRef Name="JMBG_SIN" />
     </Key>
-    <Property Name="JMBG_SIN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JMBG_SIN" Type="bigint" Nullable="false" />
     <Property Name="FIRSTNAME_SIN" Type="nvarchar(max)" Nullable="false" />
     <Property Name="LASTNAME_SIN" Type="nvarchar(max)" Nullable="false" />
     <Property Name="BIRTHDATE_SIN" Type="datetime" Nullable="false" />
@@ -107,6 +107,7 @@
     <Property Name="ADDRESS_SIN_HOME_NUMBER" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ADDRESS_SIN_CITY" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ADDRESS_SIN_STREET" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Competitions">
     <Key>
@@ -546,13 +547,14 @@
           <Key>
             <PropertyRef Name="JMBG_SIN" />
           </Key>
-          <Property Name="JMBG_SIN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JMBG_SIN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Name="FIRSTNAME_SIN" Type="String" Nullable="false" />
           <Property Name="LASTNAME_SIN" Type="String" Nullable="false" />
           <Property Name="BIRTHDATE_SIN" Type="DateTime" Nullable="false" />
           <Property Name="EMAIL_SIN" Type="String" Nullable="false" />
           <Property Name="PHONE_NO_SIN" Type="String" Nullable="false" />
           <Property Name="ADDRESS_SIN" Type="MusicCompetitionDb.ADDRESS" Nullable="false" />
+          <Property Name="Type" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="Competitor" BaseType="MusicCompetitionDb.Singer" >
           <NavigationProperty Name="Competiting" Relationship="MusicCompetitionDb.CompetitorCompetiting" FromRole="Competitor" ToRole="Competiting" />
@@ -924,6 +926,7 @@
             <ScalarProperty Name="CITY" ColumnName="ADDRESS_SIN_CITY" />
             <ScalarProperty Name="STREET" ColumnName="ADDRESS_SIN_STREET" />
           </ComplexProperty>
+          <ScalarProperty Name="Type" ColumnName="Type" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(MusicCompetitionDb.Competitor)">

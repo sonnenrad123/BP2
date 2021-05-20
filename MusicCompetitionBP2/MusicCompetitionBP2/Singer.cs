@@ -26,6 +26,7 @@ namespace MusicCompetitionBP2
         public System.DateTime BIRTHDATE_SIN { get; set; }
         public string EMAIL_SIN { get; set; }
         public string PHONE_NO_SIN { get; set; }
+        public string Type { get; set; }
     
         public ADDRESS ADDRESS_SIN { get; set; }
     }

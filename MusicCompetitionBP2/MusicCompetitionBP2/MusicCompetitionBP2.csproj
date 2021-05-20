@@ -52,18 +52,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADDRESS.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competiting.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competition.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Competitor.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Evaluate.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Genre.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HiredFor.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IsExpert.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JuryMember.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="MusicCompetitionDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MusicCompetitionDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MusicCompetitionDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>
     <Compile Include="MusicCompetitionDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MusicCompetitionDb.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MusicPerformance.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Organize.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerformanceHall.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PossessesA.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublishingHouse.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\CompetitorRepository.cs" />
+    <Compile Include="Reserve.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Singer.cs">
+      <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,11 +134,23 @@
     <Content Include="MusicCompetitionDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MusicCompetitionDb.Context.cs</LastGenOutput>
+      <DependentUpon>MusicCompetitionDb.edmx</DependentUpon>
     </Content>
     <Content Include="MusicCompetitionDb.edmx.sql" />
+    <Content Include="MusicCompetitionDb.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MusicCompetitionDb.cs</LastGenOutput>
+      <DependentUpon>MusicCompetitionDb.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{290beb5a-c264-43d7-bd99-aad25c2d0f2b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
