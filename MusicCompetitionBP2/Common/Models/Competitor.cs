@@ -10,6 +10,7 @@ namespace Common.Models
     {
         public Competitor(long jMBG_SIN, string fIRSTNAME_SIN, string lASTNAME_SIN, DateTime bIRTHDATE_SIN, string eMAIL_SIN, string pHONE_NO_SIN, ADDRESS aDDRESS_SIN) : base(jMBG_SIN, fIRSTNAME_SIN, lASTNAME_SIN, bIRTHDATE_SIN, eMAIL_SIN, pHONE_NO_SIN, aDDRESS_SIN)
         {
+            Type = "Competitor";
         }
 
         public override string ToString()

@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace MusicCompetitionBP2.Repositories
 {
-    public class CompetitorRepository
+    public class JuryMemberRepository
     {
         private readonly MusicCompetitionDbContext dbContext;
-        public CompetitorRepository(MusicCompetitionDbContext dbContext)
+        public JuryMemberRepository(MusicCompetitionDbContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
 
-        public bool Create(Common.Models.Competitor competitor)
+        public bool Create(Common.Models.JuryMember competitor)
         {
-            if(dbContext.Singers.FirstOrDefault((x) => x.JMBG_SIN == competitor.JMBG_SIN) != null)//ako pronadjemo nekoga sa istim jmbg-om ne mere
+            if (dbContext.Singers.FirstOrDefault((x) => x.JMBG_SIN == competitor.JMBG_SIN) != null)//ako pronadjemo nekoga sa istim jmbg-om ne mere
             {
                 return false;
             }
 
-            Competitor tempCmp = new Competitor()
+            JuryMember tempCmp = new JuryMember()
             {
                 ADDRESS_SIN = new ADDRESS() { CITY = competitor.ADDRESS_SIN.CITY, HOME_NUMBER = competitor.ADDRESS_SIN.HOME_NUMBER, STREET = competitor.ADDRESS_SIN.STREET },
                 BIRTHDATE_SIN = competitor.BIRTHDATE_SIN,
@@ -31,7 +31,7 @@ namespace MusicCompetitionBP2.Repositories
                 JMBG_SIN = competitor.JMBG_SIN,
                 LASTNAME_SIN = competitor.LASTNAME_SIN,
                 PHONE_NO_SIN = competitor.PHONE_NO_SIN,
-                Type = "Competitor"
+                Type = "JuryMember"
             };
             dbContext.Singers.Add(tempCmp);
 
@@ -39,35 +39,35 @@ namespace MusicCompetitionBP2.Repositories
         }
 
 
-        public Common.Models.Competitor Read(long JMBG)
+        public Common.Models.JuryMember Read(long JMBG)
         {
             var temp = dbContext.Singers.AsNoTracking().FirstOrDefault((x) => x.JMBG_SIN == JMBG);
-            if(temp == null)
+            if (temp == null)
             {
                 return null;
             }
 
-            if(temp.Type != "Competitor")
+            if (temp.Type != "JuryMember")
             {
                 return null;
             }
-            return new Common.Models.Competitor(temp.JMBG_SIN, temp.FIRSTNAME_SIN, temp.LASTNAME_SIN, temp.BIRTHDATE_SIN, temp.EMAIL_SIN, temp.PHONE_NO_SIN, new Common.Models.ADDRESS(temp.ADDRESS_SIN.HOME_NUMBER, temp.ADDRESS_SIN.CITY, temp.ADDRESS_SIN.STREET)) { Type = "Competitor" };
+            return new Common.Models.JuryMember(temp.JMBG_SIN, temp.FIRSTNAME_SIN, temp.LASTNAME_SIN, temp.BIRTHDATE_SIN, temp.EMAIL_SIN, temp.PHONE_NO_SIN, new Common.Models.ADDRESS(temp.ADDRESS_SIN.HOME_NUMBER, temp.ADDRESS_SIN.CITY, temp.ADDRESS_SIN.STREET));
         }
 
-        public IEnumerable<Common.Models.Competitor> ReadAll()
+        public IEnumerable<Common.Models.JuryMember> ReadAll()
         {
-            var ret = new List<Common.Models.Competitor>();
+            var ret = new List<Common.Models.JuryMember>();
             dbContext.Singers.AsNoTracking().ToList().ForEach((temp) =>
             {
-                if (temp.Type == "Competitor")
+                if (temp.Type == "JuryMember")
                 {
-                    ret.Add(new Common.Models.Competitor(temp.JMBG_SIN, temp.FIRSTNAME_SIN, temp.LASTNAME_SIN, temp.BIRTHDATE_SIN, temp.EMAIL_SIN, temp.PHONE_NO_SIN, new Common.Models.ADDRESS(temp.ADDRESS_SIN.HOME_NUMBER, temp.ADDRESS_SIN.CITY, temp.ADDRESS_SIN.STREET)) { Type = "Competitor" });
+                    ret.Add(new Common.Models.JuryMember(temp.JMBG_SIN, temp.FIRSTNAME_SIN, temp.LASTNAME_SIN, temp.BIRTHDATE_SIN, temp.EMAIL_SIN, temp.PHONE_NO_SIN, new Common.Models.ADDRESS(temp.ADDRESS_SIN.HOME_NUMBER, temp.ADDRESS_SIN.CITY, temp.ADDRESS_SIN.STREET)));
                 }
             });
             return ret;
         }
 
-        public void Update(Common.Models.Competitor comp)
+        public void Update(Common.Models.JuryMember comp)
         {
             var temp = dbContext.Singers.FirstOrDefault((x) => x.JMBG_SIN == comp.JMBG_SIN);
             dbContext.Entry(temp).CurrentValues.SetValues(comp);
@@ -84,7 +84,7 @@ namespace MusicCompetitionBP2.Repositories
                 {
                     return false;
                 }
-                if(s.Type == "Competitor")
+                if (s.Type == "JuryMember")
                 {
                     dbContext.Singers.Remove(s);
                     dbContext.SaveChanges();
@@ -102,7 +102,7 @@ namespace MusicCompetitionBP2.Repositories
         }
 
 
-        ~CompetitorRepository()
+        ~JuryMemberRepository()
         {
             dbContext.Dispose();
         }

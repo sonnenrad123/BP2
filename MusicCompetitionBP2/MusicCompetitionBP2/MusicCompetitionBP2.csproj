@@ -111,7 +111,10 @@
     <Compile Include="PublishingHouse.cs">
       <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\CompetitingRepository.cs" />
+    <Compile Include="Repositories\CompetitionRepository.cs" />
     <Compile Include="Repositories\CompetitorRepository.cs" />
+    <Compile Include="Repositories\JuryMemberRepository.cs" />
     <Compile Include="Reserve.cs">
       <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>
