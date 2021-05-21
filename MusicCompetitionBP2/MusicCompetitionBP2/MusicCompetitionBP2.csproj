@@ -114,7 +114,17 @@
     <Compile Include="Repositories\CompetitingRepository.cs" />
     <Compile Include="Repositories\CompetitionRepository.cs" />
     <Compile Include="Repositories\CompetitorRepository.cs" />
+    <Compile Include="Repositories\EvaluateRepository.cs" />
+    <Compile Include="Repositories\GenreRepository.cs" />
+    <Compile Include="Repositories\HiredForRepository.cs" />
+    <Compile Include="Repositories\IsExpertRepository.cs" />
     <Compile Include="Repositories\JuryMemberRepository.cs" />
+    <Compile Include="Repositories\MusicPerformanceRepository.cs" />
+    <Compile Include="Repositories\OrganizeRepository.cs" />
+    <Compile Include="Repositories\PerformanceHallRepository.cs" />
+    <Compile Include="Repositories\PossessesARepository.cs" />
+    <Compile Include="Repositories\PublishinHouseRepository.cs" />
+    <Compile Include="Repositories\ReserveRepository.cs" />
     <Compile Include="Reserve.cs">
       <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>

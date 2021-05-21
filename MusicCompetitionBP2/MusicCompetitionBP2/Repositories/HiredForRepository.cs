@@ -18,7 +18,7 @@ namespace MusicCompetitionBP2.Repositories
         {
             try
             {
-                dbContext.HiredForSet.Add(new HiredFor({ CompetitionID_COMP = competitionID,JuryMemberJMBG_SIN = JuryJMBG}));
+                dbContext.HiredForSet.Add(new HiredFor(){ CompetitionID_COMP = competitionID,JuryMemberJMBG_SIN = JuryJMBG});
                 dbContext.SaveChanges();
                 return true;
             }
@@ -41,6 +41,37 @@ namespace MusicCompetitionBP2.Repositories
             {
                 return false;
             }
+        }
+
+        public Common.Models.HiredFor Read(long JuryJMBG, int competitionID)
+        {
+            var temp = dbContext.HiredForSet.FirstOrDefault((x) => x.CompetitionID_COMP == competitionID && x.JuryMemberJMBG_SIN == JuryJMBG);
+            if(temp == null)
+            {
+                return null;
+            }
+            Common.Models.Competition cmptemp = new Common.Models.Competition(temp.Competition.ID_COMP, temp.Competition.DATE_START, temp.Competition.DATE_END, temp.Competition.NAME_COMP, temp.Competition.MAX_COMPETITORS);
+            Common.Models.JuryMember jurytemp = new Common.Models.JuryMember(temp.JuryMember.JMBG_SIN, temp.JuryMember.FIRSTNAME_SIN, temp.JuryMember.LASTNAME_SIN, temp.JuryMember.BIRTHDATE_SIN, temp.JuryMember.EMAIL_SIN,
+                temp.JuryMember.PHONE_NO_SIN, new Common.Models.ADDRESS(temp.JuryMember.ADDRESS_SIN.HOME_NUMBER, temp.JuryMember.ADDRESS_SIN.CITY, temp.JuryMember.ADDRESS_SIN.STREET));
+            return new Common.Models.HiredFor(temp.JuryMemberJMBG_SIN, temp.CompetitionID_COMP, jurytemp, cmptemp);
+        }
+
+        public IEnumerable<Common.Models.HiredFor> ReadAll()
+        {
+            var ret = new List<Common.Models.HiredFor>();
+            dbContext.HiredForSet.AsNoTracking().ToList().ForEach((temp) =>
+            {
+                Common.Models.Competition cmptemp = new Common.Models.Competition(temp.Competition.ID_COMP, temp.Competition.DATE_START, temp.Competition.DATE_END, temp.Competition.NAME_COMP, temp.Competition.MAX_COMPETITORS);
+                Common.Models.JuryMember jurytemp = new Common.Models.JuryMember(temp.JuryMember.JMBG_SIN, temp.JuryMember.FIRSTNAME_SIN, temp.JuryMember.LASTNAME_SIN, temp.JuryMember.BIRTHDATE_SIN, temp.JuryMember.EMAIL_SIN,
+                temp.JuryMember.PHONE_NO_SIN, new Common.Models.ADDRESS(temp.JuryMember.ADDRESS_SIN.HOME_NUMBER, temp.JuryMember.ADDRESS_SIN.CITY, temp.JuryMember.ADDRESS_SIN.STREET));
+                ret.Add(new Common.Models.HiredFor(temp.JuryMemberJMBG_SIN, temp.CompetitionID_COMP, jurytemp, cmptemp));
+            });
+            return ret;
+        }
+
+        ~HiredForRepository()
+        {
+            dbContext.Dispose();
         }
     }
 }
