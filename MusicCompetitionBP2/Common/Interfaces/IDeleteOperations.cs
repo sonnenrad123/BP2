@@ -11,8 +11,6 @@ namespace Common.Interfaces
     public interface IDeleteOperations
     {
         [OperationContract]
-        bool DeleteSinger(long JMBG);
-        [OperationContract]
         bool DeleteCompetitor(long JMBG);
         [OperationContract]
         bool DeleteJuryMember(long JMBG);

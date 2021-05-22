@@ -11,8 +11,7 @@ namespace Common.Interfaces
     [ServiceContract]
     public interface ICreateOperations
     {
-        [OperationContract]
-        bool AddSinger(Singer s);
+       
         [OperationContract]
         bool AddCompetitor(Competitor c);
         [OperationContract]

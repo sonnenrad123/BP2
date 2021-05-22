@@ -79,6 +79,7 @@
     <Compile Include="JuryMember.cs">
       <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="MainRepository.cs" />
     <Compile Include="MusicCompetitionDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -128,6 +129,7 @@
     <Compile Include="Reserve.cs">
       <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Server.cs" />
     <Compile Include="Singer.cs">
       <DependentUpon>MusicCompetitionDb.tt</DependentUpon>
     </Compile>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicCompetitionBP2", "Musi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{290BEB5A-C264-43D7-BD99-AAD25C2D0F2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUI", "ClientUI\ClientUI.csproj", "{08C62E58-E4B4-492F-8351-EF48052FDB0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{290BEB5A-C264-43D7-BD99-AAD25C2D0F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{290BEB5A-C264-43D7-BD99-AAD25C2D0F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{290BEB5A-C264-43D7-BD99-AAD25C2D0F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08C62E58-E4B4-492F-8351-EF48052FDB0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C62E58-E4B4-492F-8351-EF48052FDB0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C62E58-E4B4-492F-8351-EF48052FDB0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C62E58-E4B4-492F-8351-EF48052FDB0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

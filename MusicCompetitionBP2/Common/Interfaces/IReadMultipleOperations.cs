@@ -11,8 +11,7 @@ namespace Common.Interfaces
     [ServiceContract]
     public interface IReadMultipleOperations
     {
-        [OperationContract]
-        IEnumerable<Singer> ReadSingers();
+       
         [OperationContract]
         IEnumerable<Competitor> ReadCompetitors();
         [OperationContract]

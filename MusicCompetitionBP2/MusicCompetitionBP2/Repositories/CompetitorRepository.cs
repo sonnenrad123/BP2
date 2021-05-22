@@ -77,6 +77,7 @@ namespace MusicCompetitionBP2.Repositories
 
         public bool Remove(long JMBG)
         {
+            
             try
             {
                 Singer s = dbContext.Singers.FirstOrDefault((x) => x.JMBG_SIN == JMBG);
@@ -84,7 +85,7 @@ namespace MusicCompetitionBP2.Repositories
                 {
                     return false;
                 }
-                if(s.Type == "Competitor")
+                if (s.Type == "Competitor")
                 {
                     dbContext.Singers.Remove(s);
                     dbContext.SaveChanges();

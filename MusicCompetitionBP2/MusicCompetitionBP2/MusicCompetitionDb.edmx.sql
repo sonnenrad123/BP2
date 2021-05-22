@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/20/2021 21:17:57
+-- Date Created: 05/22/2021 16:08:46
 -- Generated from EDMX file: D:\Projekti2020-2021\BP2\MusicCompetitionBP2\MusicCompetitionBP2\MusicCompetitionDb.edmx
 -- --------------------------------------------------
 
@@ -361,7 +361,7 @@ ADD CONSTRAINT [FK_CompetitorCompetiting]
     FOREIGN KEY ([CompetitorJMBG_SIN])
     REFERENCES [dbo].[Singers_Competitor]
         ([JMBG_SIN])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [CompetitionID_COMP] in table 'Competitings'
@@ -370,7 +370,7 @@ ADD CONSTRAINT [FK_CompetitionCompetiting]
     FOREIGN KEY ([CompetitionID_COMP])
     REFERENCES [dbo].[Competitions]
         ([ID_COMP])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CompetitionCompetiting'
@@ -385,7 +385,7 @@ ADD CONSTRAINT [FK_PublishingHouseOrganize]
     FOREIGN KEY ([PublishingHouseID_PH])
     REFERENCES [dbo].[PublishingHouses]
         ([ID_PH])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [CompetitionID_COMP] in table 'Organizations'
@@ -394,7 +394,7 @@ ADD CONSTRAINT [FK_CompetitionOrganize]
     FOREIGN KEY ([CompetitionID_COMP])
     REFERENCES [dbo].[Competitions]
         ([ID_COMP])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CompetitionOrganize'
@@ -409,7 +409,7 @@ ADD CONSTRAINT [FK_JuryMemberHiredFor]
     FOREIGN KEY ([JuryMemberJMBG_SIN])
     REFERENCES [dbo].[Singers_JuryMember]
         ([JMBG_SIN])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [CompetitionID_COMP] in table 'HiredForSet'
@@ -418,7 +418,7 @@ ADD CONSTRAINT [FK_CompetitionHiredFor]
     FOREIGN KEY ([CompetitionID_COMP])
     REFERENCES [dbo].[Competitions]
         ([ID_COMP])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CompetitionHiredFor'
@@ -433,7 +433,7 @@ ADD CONSTRAINT [FK_CompetitionPossessesA]
     FOREIGN KEY ([CompetitionID_COMP])
     REFERENCES [dbo].[Competitions]
         ([ID_COMP])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [GenreID_GENRE] in table 'PossessesASet'
@@ -442,7 +442,7 @@ ADD CONSTRAINT [FK_GenrePossessesA]
     FOREIGN KEY ([GenreID_GENRE])
     REFERENCES [dbo].[Genres]
         ([ID_GENRE])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_GenrePossessesA'
@@ -457,7 +457,7 @@ ADD CONSTRAINT [FK_JuryMemberIsExpert]
     FOREIGN KEY ([JuryMemberJMBG_SIN])
     REFERENCES [dbo].[Singers_JuryMember]
         ([JMBG_SIN])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [GenreID_GENRE] in table 'IsExpertSet'
@@ -466,7 +466,7 @@ ADD CONSTRAINT [FK_GenreIsExpert]
     FOREIGN KEY ([GenreID_GENRE])
     REFERENCES [dbo].[Genres]
         ([ID_GENRE])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_GenreIsExpert'
@@ -496,7 +496,7 @@ ADD CONSTRAINT [FK_MusicPerformanceGenre]
     FOREIGN KEY ([GenreID_GENRE])
     REFERENCES [dbo].[Genres]
         ([ID_GENRE])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_MusicPerformanceGenre'
@@ -520,7 +520,7 @@ ADD CONSTRAINT [FK_MusicPerformanceEvaluate]
     FOREIGN KEY ([MusicPerformanceID_PERF])
     REFERENCES [dbo].[MusicPerformances]
         ([ID_PERF])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_MusicPerformanceEvaluate'
@@ -535,7 +535,7 @@ ADD CONSTRAINT [FK_OrganizeReserve]
     FOREIGN KEY ([OrganizePublishingHouseID_PH], [OrganizeCompetitionID_COMP])
     REFERENCES [dbo].[Organizations]
         ([PublishingHouseID_PH], [CompetitionID_COMP])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating foreign key on [PerformanceHallID_HALL] in table 'Reservations'
@@ -544,7 +544,7 @@ ADD CONSTRAINT [FK_PerformanceHallReserve]
     FOREIGN KEY ([PerformanceHallID_HALL])
     REFERENCES [dbo].[PerformanceHalls]
         ([ID_HALL])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
+    ON DELETE CASCADE ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_PerformanceHallReserve'

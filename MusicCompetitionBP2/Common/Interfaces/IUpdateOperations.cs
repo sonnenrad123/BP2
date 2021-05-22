@@ -12,8 +12,6 @@ namespace Common.Interfaces
     public interface IUpdateOperations
     {
         [OperationContract]
-        void EditSinger(Singer s);
-        [OperationContract]
         void EditCompetitor(Competitor c);
         [OperationContract]
         void EditJuryMember(JuryMember jM);

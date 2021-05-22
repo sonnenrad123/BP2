@@ -11,8 +11,7 @@ namespace Common.Interfaces
     [ServiceContract]
     public interface IReadSingleOperations
     {
-        [OperationContract]
-        Singer ReadSinger(long JMBG);
+        
         [OperationContract]
         Competitor ReadCompetitor(long JMBG);
         [OperationContract]

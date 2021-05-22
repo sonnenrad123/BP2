@@ -15,7 +15,7 @@ namespace MusicCompetitionBP2.Repositories
             this.dbContext = dbContext;
         }
 
-        public bool Create(int competitionID,long competitorID,int genreID,string songAuthor,string orig_perf,string song_name,DateTime dateperf)
+        public bool Create(int? competitionID,long? competitorID,int genreID,string songAuthor,string orig_perf,string song_name,DateTime dateperf)
         {
             
             try
@@ -97,6 +97,27 @@ namespace MusicCompetitionBP2.Repositories
                 ret.Add(new Common.Models.MusicPerformance(temp.ID_PERF, temp.ORIG_PERFORMER, temp.SONG_NAME, temp.SONG_AUTHOR, temp.DATE_PERF, temp.Competiting.CompetitorJMBG_SIN, temp.Competiting.CompetitionID_COMP, temp.GenreID_GENRE, competitingTemp, genreTemp));
             });
             return ret;
+        }
+
+        public void Update(int id, string songAuthor, string orig_perf, string song_name, DateTime dateperf)
+        {
+            try
+            {
+                MusicPerformance musifperf = dbContext.MusicPerformances.FirstOrDefault((x) => x.ID_PERF == id);
+                if(musifperf == null)
+                {
+                    return;
+                }
+                musifperf.SONG_AUTHOR = songAuthor;
+                musifperf.ORIG_PERFORMER = orig_perf;
+                musifperf.SONG_NAME = song_name;
+                musifperf.DATE_PERF = dateperf;
+                dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         ~MusicPerformanceRepository()
