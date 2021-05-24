@@ -21,3 +21,15 @@ D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\ClientUI.csprojA
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\CompetitorsTableView.g.cs
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\CompetitorsTableView.baml
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\ClientUI.csproj.CopyComplete
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\JuryMembersView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\JuryMembersView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\CompetitionsTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\GenresTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\MusicPerformancesTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PerformanceHallsTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PublishingHousesTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\CompetitionsTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\GenresTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\MusicPerformancesTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PerformanceHallsTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PublishingHousesTableView.baml

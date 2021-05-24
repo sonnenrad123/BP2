@@ -68,22 +68,22 @@ namespace ClientUI
                     CurrentViewModel = new CompetitorsTableViewModel();
                     break;
                 case "JuryMembers":
-
+                    CurrentViewModel = new JuryMembersTableViewModel();
                     break;
                 case "Competitions":
-
+                    CurrentViewModel = new CompetitionsTableViewModel();
                     break;
                 case "Genres":
-
+                    CurrentViewModel = new GenresTableViewModel();
                     break;
                 case "PublishingHouses":
-
+                    CurrentViewModel = new PublishingHousesTableViewModel();
                     break;
                 case "PerformanceHalls":
-
+                    CurrentViewModel = new PerformanceHallsTableViewModel();
                     break;
                 case "MusicPerformances":
-
+                    CurrentViewModel = new MusicPerformancesTableViewModel();
                     break;
             }
         }

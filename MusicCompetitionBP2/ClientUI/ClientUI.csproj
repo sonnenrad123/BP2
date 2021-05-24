@@ -59,13 +59,37 @@
     <Compile Include="RepositoryCommunicationProvider.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValidationErrors.cs" />
+    <Compile Include="ViewModel\CompetitionsTableViewModel.cs" />
     <Compile Include="ViewModel\CompetitorsTableViewModel.cs" />
+    <Compile Include="ViewModel\GenresTableViewModel.cs" />
+    <Compile Include="ViewModel\JuryMembersTableViewModel.cs" />
     <Compile Include="ViewModel\MainMenuViewModel.cs" />
+    <Compile Include="ViewModel\MusicPerformancesTableViewModel.cs" />
+    <Compile Include="ViewModel\PerformanceHallsTableViewModel.cs" />
+    <Compile Include="ViewModel\PublishingHousesTableViewModel.cs" />
+    <Compile Include="Views\CompetitionsTableView.xaml.cs">
+      <DependentUpon>CompetitionsTableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CompetitorsTableView.xaml.cs">
       <DependentUpon>CompetitorsTableView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenresTableView.xaml.cs">
+      <DependentUpon>GenresTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JuryMembersView.xaml.cs">
+      <DependentUpon>JuryMembersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainMenuView.xaml.cs">
       <DependentUpon>MainMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MusicPerformancesTableView.xaml.cs">
+      <DependentUpon>MusicPerformancesTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PerformanceHallsTableView.xaml.cs">
+      <DependentUpon>PerformanceHallsTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PublishingHousesTableView.xaml.cs">
+      <DependentUpon>PublishingHousesTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -82,11 +106,35 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CompetitionsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CompetitorsTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\GenresTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JuryMembersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MusicPerformancesTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PerformanceHallsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PublishingHousesTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

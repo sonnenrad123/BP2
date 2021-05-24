@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\App.xaml
-3-1350547843
+9-848451894
 
-1749447915
+291183209697
 151148556493
-MainWindow.xaml;Views\CompetitorsTableView.xaml;Views\MainMenuView.xaml;
+MainWindow.xaml;Views\CompetitionsTableView.xaml;Views\CompetitorsTableView.xaml;Views\GenresTableView.xaml;Views\JuryMembersView.xaml;Views\MainMenuView.xaml;Views\MusicPerformancesTableView.xaml;Views\PerformanceHallsTableView.xaml;Views\PublishingHousesTableView.xaml;
 
 False
 
