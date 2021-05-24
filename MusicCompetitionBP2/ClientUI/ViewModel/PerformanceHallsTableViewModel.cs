@@ -51,17 +51,30 @@ namespace ClientUI.ViewModel
                 }
                 DeleteCommand.RaiseCanExecuteChanged();
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
         private bool CanModify()
         {
-            return false;
+            return  selectedPerformanceHall!=null && nameTB != "" && (int.TryParse(CapacityTB, out int capacity));
         }
 
         private void OnModify()
         {
-            throw new NotImplementedException();
+            if(selectedPerformanceHall == null)
+            {
+                return;
+            }
+            int capacity = -1;
+            if (!(int.TryParse(CapacityTB, out capacity)))
+            {
+                System.Windows.MessageBox.Show("Capacity must be a number! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+            repo.RepositoryProxy.EditPerformanceHall(new PerformanceHall(selectedPerformanceHall.ID_HALL, NameTB, capacity));
+            RefreshTable();
         }
 
         private bool CanAdd()

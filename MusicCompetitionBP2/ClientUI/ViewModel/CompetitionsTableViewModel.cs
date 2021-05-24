@@ -36,12 +36,20 @@ namespace ClientUI.ViewModel
 
         private bool CanModify()
         {
-            return false;
+            return selectedCompetition!=null && NameTB != "" && int.TryParse(MaxCompetitorsTB, out int mc) && StartDateDP != null && EndDateDP != null;
         }
 
         private void OnModify()
         {
-            throw new NotImplementedException();
+            int maxcomp = -1;
+            if (!(int.TryParse(MaxCompetitorsTB, out maxcomp)))
+            {
+                System.Windows.MessageBox.Show("Max competitors must be a number!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+            repo.RepositoryProxy.EditCompetition(new Competition(SelectedCompetition.ID_COMP, startDateDP, endDateDP, nameTB, maxcomp));
+            RefreshTable();
         }
 
         private bool CanAdd()
@@ -96,6 +104,7 @@ namespace ClientUI.ViewModel
 
                 DeleteCommand.RaiseCanExecuteChanged();
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -110,6 +119,7 @@ namespace ClientUI.ViewModel
                 nameTB = value;
                 OnPropertyChanged("NameTB");
                 AddCommand.RaiseCanExecuteChanged();
+                
             }
         }
         public string MaxCompetitorsTB { get => maxCompetitorsTB; set { maxCompetitorsTB = value; OnPropertyChanged("MaxCompetitorsTB"); AddCommand.RaiseCanExecuteChanged(); } }

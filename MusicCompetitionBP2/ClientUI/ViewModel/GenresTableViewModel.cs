@@ -48,18 +48,21 @@ namespace ClientUI.ViewModel
                 }
                 DeleteCommand.RaiseCanExecuteChanged();
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
 
         private bool CanModify()
         {
-            return false;
+            return SelectedGenre != null && nameTB != "";
         }
 
         private void OnModify()
         {
-            throw new NotImplementedException();
+            RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+            repo.RepositoryProxy.EditGenre(new Genre(selectedGenre.ID_GENRE, NameTB));
+            RefreshTable();
         }
 
         private bool CanAdd()

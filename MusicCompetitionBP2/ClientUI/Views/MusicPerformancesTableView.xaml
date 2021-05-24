@@ -25,7 +25,7 @@
                     <DataGridTextColumn Header="Original performer" Binding="{Binding ORIG_PERFORMER}" Width="*" />
                     <DataGridTextColumn Header="Song name" Binding="{Binding SONG_NAME}" Width="*" />
                     <DataGridTextColumn Header="Song author" Binding="{Binding SONG_AUTHOR}" Width="*" />
-                    <DataGridTextColumn Header="Date" Binding="{Binding DATE_PERF}" Width="*" />
+                    <DataGridTextColumn Header="Date" Binding="{Binding DATE_PERF,StringFormat='dd.MM.yyyy'}" Width="*" />
                     <DataGridTextColumn Header="Competitor JMBG" Binding="{Binding CompetitingCompetitorJMBG_SIN}" Width="*" />
                     <DataGridTextColumn Header="Competition ID" Binding="{Binding CompetitingCompetitionID_COMP}" Width="*" />
                     <DataGridTextColumn Header="Genre" Binding="{Binding Genre.GENRE_NAME}" Width="*" />

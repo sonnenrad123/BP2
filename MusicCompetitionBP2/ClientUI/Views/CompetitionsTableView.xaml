@@ -23,8 +23,8 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID_COMP, UpdateSourceTrigger=PropertyChanged}" Width="*" />
                     <DataGridTextColumn Header="Name" Binding="{Binding NAME_COMP}" Width="*" />
-                    <DataGridTextColumn Header="Start date" Binding="{Binding DATE_START}" Width="*" />
-                    <DataGridTextColumn Header="End date" Binding="{Binding DATE_END}" Width="*"/>
+                    <DataGridTextColumn Header="Start date" Binding="{Binding DATE_START,StringFormat='dd.MM.yyyy'}" Width="*" />
+                    <DataGridTextColumn Header="End date" Binding="{Binding DATE_END,StringFormat='dd.MM.yyyy'}" Width="*"/>
                     <DataGridTextColumn Header="Max competitors" Binding="{Binding MAX_COMPETITORS}" Width="*"/>
 
 

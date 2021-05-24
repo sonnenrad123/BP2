@@ -61,16 +61,26 @@ namespace ClientUI.ViewModel
                 }
                 DeleteCommand.RaiseCanExecuteChanged();
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
         private bool CanModify()
         {
-            return false;
+            return selectedPublishingHouse!=null && nameTB != "" && cityTB!=""&&streetTB!=""&&numberTB!="" && int.TryParse(numberTB, out int n);
         }
 
         private void OnModify()
         {
-            throw new NotImplementedException();
+            int adrnum = -1;
+            if (!(int.TryParse(NumberTB, out adrnum)))
+            {
+                System.Windows.MessageBox.Show("Address number must be a number!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+            repo.RepositoryProxy.EditPublishingHouse(new PublishingHouse(selectedPublishingHouse.ID_PH, NameTB, new Common.Models.ADDRESS(adrnum.ToString(), cityTB, streetTB)));
+            RefreshTable();
         }
 
         private bool CanAdd()

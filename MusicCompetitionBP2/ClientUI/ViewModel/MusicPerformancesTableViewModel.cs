@@ -107,6 +107,7 @@ namespace ClientUI.ViewModel
                 }
                 DeleteCommand.RaiseCanExecuteChanged();
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
 
         }
@@ -114,12 +115,67 @@ namespace ClientUI.ViewModel
 
         private bool CanModify()
         {
-            return false;
+            bool AllOkey = true;
+
+            if(selectedMusicPerformance == null)
+            {
+                return false;
+            }
+
+            if (OrigPerfTB == "" || SongAuthorTB == "" || songNameTB == "" || selectedCompetition != selectedMusicPerformance.Competiting.Competition.NAME_COMP || selectedGenre != selectedMusicPerformance.Genre.GENRE_NAME || selectedCompetitor != string.Format("{0} {1}", selectedMusicPerformance.Competiting.Competitor.FIRSTNAME_SIN, selectedMusicPerformance.Competiting.Competitor.LASTNAME_SIN))
+            {
+                AllOkey = false;
+            }
+
+
+
+
+            return AllOkey;
         }
 
         private void OnModify()
         {
-            throw new NotImplementedException();
+            RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+            long competitorId = -1;
+            int competitionId = -1;
+            int genreID = -1;
+            if(selectedMusicPerformance == null)
+            {
+                ModifyCommand.RaiseCanExecuteChanged();
+                return;
+            }
+            foreach (Competitor cmp in Competitors)
+            {
+                if (selectedCompetitor == (cmp.FIRSTNAME_SIN + " " + cmp.LASTNAME_SIN))
+                {
+                    competitorId = cmp.JMBG_SIN;
+                }
+            }
+
+            foreach (Competition cmp in Competitions)
+            {
+                if (selectedCompetition == cmp.NAME_COMP)
+                {
+                    competitionId = cmp.ID_COMP;
+                }
+            }
+
+            foreach (Genre g in Genres)
+            {
+                if (g.GENRE_NAME == selectedGenre)
+                {
+                    genreID = g.ID_GENRE;
+                }
+            }
+
+            if (competitionId == -1 || competitorId == -1 || genreID == -1)
+            {
+                System.Windows.MessageBox.Show("There was a problem! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            repo.RepositoryProxy.EditMusicPerformance(new MusicPerformance(selectedMusicPerformance.ID_PERF, OrigPerfTB, SongNameTB, SongAuthorTB, DateDP, competitorId, competitionId, genreID, null, null));
+            RefreshTable();
         }
 
         private bool CanAdd()
@@ -206,9 +262,9 @@ namespace ClientUI.ViewModel
         public string OrigPerfTB { get => origPerfTB; set { origPerfTB = value; OnPropertyChanged("OrigPerfTB"); AddCommand.RaiseCanExecuteChanged(); } }
         public string SongAuthorTB { get => songAuthorTB; set { songAuthorTB = value; OnPropertyChanged("SongAuthorTB"); AddCommand.RaiseCanExecuteChanged(); } }
         public string SongNameTB { get => songNameTB; set { songNameTB = value; OnPropertyChanged("SongNameTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string SelectedCompetitor { get => selectedCompetitor; set { selectedCompetitor = value; OnPropertyChanged("SelectedCompetitorTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string SelectedCompetition { get => selectedCompetition; set { selectedCompetition = value; OnPropertyChanged("SelectedCompetitionTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string SelectedGenre { get => selectedGenre; set { selectedGenre = value; OnPropertyChanged("SelectedGenreTB"); AddCommand.RaiseCanExecuteChanged(); }  }
+        public string SelectedCompetitor { get => selectedCompetitor; set { selectedCompetitor = value; OnPropertyChanged("SelectedCompetitorTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string SelectedCompetition { get => selectedCompetition; set { selectedCompetition = value; OnPropertyChanged("SelectedCompetitionTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string SelectedGenre { get => selectedGenre; set { selectedGenre = value; OnPropertyChanged("SelectedGenreTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); }  }
         public DateTime DateDP { get => dateDP; set { dateDP = value; OnPropertyChanged("DateDP"); AddCommand.RaiseCanExecuteChanged(); } }
 
         private void RefreshTable()

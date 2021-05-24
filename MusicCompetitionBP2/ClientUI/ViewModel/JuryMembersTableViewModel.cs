@@ -42,12 +42,42 @@ namespace ClientUI.ViewModel
 
         private bool CanModify()
         {
-            return false;
+            bool allRight = true;
+
+            if (selectedJuryMember == null)
+            {
+                allRight = false;
+                return false;
+            }
+
+            if (selectedJuryMember.JMBG_SIN.ToString() != jmbgTB)
+            {
+                allRight = false;
+
+            }
+
+            if (FirstNameTB == "" && lastNameTB == "" && birthDP == null && emailTB == "" && phoneNoTB == "" && cityTB == "" && streetTB == "" && int.TryParse(numberTB, out int n))
+            {
+                allRight = false;
+            }
+
+            return allRight;
         }
 
         private void OnModify()
         {
-            throw new NotImplementedException();
+            RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+
+            if (CanModify())
+            {
+                repo.RepositoryProxy.EditJuryMember(new Common.Models.JuryMember(selectedJuryMember.JMBG_SIN, firstNameTB, lastNameTB, birthDP, emailTB, phoneNoTB, new Common.Models.ADDRESS(numberTB, cityTB, streetTB)));
+                RefreshTable();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Wrong input!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
         }
 
         private bool CanAdd()
@@ -137,11 +167,12 @@ namespace ClientUI.ViewModel
                 }
                 DeleteCommand.RaiseCanExecuteChanged();
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
         public string FirstNameTB { get => firstNameTB; set { firstNameTB = value; OnPropertyChanged("FirstNameTB"); AddCommand.RaiseCanExecuteChanged(); } }
         public string LastNameTB { get => lastNameTB; set { lastNameTB = value; OnPropertyChanged("LastNameTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string JmbgTB { get => jmbgTB; set { jmbgTB = value; OnPropertyChanged("JmbgTB"); AddCommand.RaiseCanExecuteChanged(); } }
+        public string JmbgTB { get => jmbgTB; set { jmbgTB = value; OnPropertyChanged("JmbgTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
         public DateTime BirthDP { get => birthDP; set { birthDP = value; OnPropertyChanged("BirthDP"); AddCommand.RaiseCanExecuteChanged(); } }
         public string EmailTB { get => emailTB; set { emailTB = value; OnPropertyChanged("EmailTB"); AddCommand.RaiseCanExecuteChanged(); } }
         public string PhoneNoTB { get => phoneNoTB; set { phoneNoTB = value; OnPropertyChanged("PhoneNoTB"); AddCommand.RaiseCanExecuteChanged(); } }

@@ -24,7 +24,7 @@
                     <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG_SIN,UpdateSourceTrigger=PropertyChanged}" Width="*" />
                     <DataGridTextColumn Header="First Name" Binding="{Binding FIRSTNAME_SIN}" Width="*" />
                     <DataGridTextColumn Header="Last Name" Binding="{Binding LASTNAME_SIN}" Width="*" />
-                    <DataGridTextColumn Header="Date of birth" Binding="{Binding BIRTHDATE_SIN}" Width="*"/>
+                    <DataGridTextColumn Header="Date of birth" Binding="{Binding BIRTHDATE_SIN,StringFormat='dd.MM.yyyy'}" Width="*"/>
                     <DataGridTextColumn Header="Email" Binding="{Binding EMAIL_SIN}" Width="*"/>
                     <DataGridTextColumn Header="Phone No." Binding="{Binding PHONE_NO_SIN}" Width="*"/>
                     <DataGridTextColumn Header="Address" Binding="{Binding ADDRESS_SIN}" Width="*"/>
