@@ -9,7 +9,8 @@
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="100*"></RowDefinition>
-            <RowDefinition Height="900*"></RowDefinition>
+            <RowDefinition Height="650*"></RowDefinition>
+            <RowDefinition Height="350*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Background="Black" Opacity="0.8" Grid.Row="0">
@@ -18,7 +19,7 @@
 
         <Grid Grid.Row="1" >
 
-            <DataGrid  x:Name="tabela" AutoGenerateColumns="False" IsReadOnly="True" RowBackground="AliceBlue" ItemsSource="{Binding Path=PerformanceHalls, UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding SelectedPerformanceHall}" CanUserAddRows="False"  Background="#87CEFA" Opacity="0.8">
+            <DataGrid  x:Name="tabela" AutoGenerateColumns="False" IsReadOnly="True" RowBackground="AliceBlue" ItemsSource="{Binding Path=PerformanceHalls, UpdateSourceTrigger=PropertyChanged}"  SelectedItem="{Binding SelectedPerformanceHall}" CanUserAddRows="False"  Background="#87CEFA" Opacity="0.8" MinHeight="500">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID_HALL}" Width="*" />
                     <DataGridTextColumn Header="Name" Binding="{Binding NAME_HALL}" Width="*" />
@@ -29,6 +30,22 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Background="#993E3EE8">
+            <StackPanel Grid.Row="2">
+                <Label Foreground="White" FontStyle="Italic" FontFamily="Aharoni" FontSize="18">Hall name:</Label>
+                <Label Foreground="White" FontStyle="Italic" FontFamily="Aharoni" FontSize="18">Hall capacity:</Label>
 
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+                <TextBox  MinWidth="100" Text="{Binding NameTB, Mode=TwoWay}" Margin="7" MaxWidth="200"></TextBox>
+                <TextBox  MinWidth="100" Text="{Binding CapacityTB, Mode=TwoWay}" Margin="7" MaxWidth="200" PreviewTextInput="PreviewTextInput"></TextBox>
+
+
+            </StackPanel>
+
+        </StackPanel>
+        <Button x:Name="AddBtn" Content="Add new" HorizontalAlignment="Left" Margin="372,9,0,0" Grid.Row="2" VerticalAlignment="Top" Width="93" Background="#993E3EE8" Foreground="#FFFAFB79" Command="{Binding AddCommand}"/>
+        <Button x:Name="ModifyBtn" Content="Modify selected" HorizontalAlignment="Left" Margin="372,34,0,0" Grid.Row="2" VerticalAlignment="Top" Width="93" Background="#993E3EE8" Foreground="#FFFAFB79" Command="{Binding ModifyCommand}"/>
+        <Button x:Name="DeleteBtn" Content="Delete selected" HorizontalAlignment="Left" Margin="372,59,0,0" Grid.Row="2" VerticalAlignment="Top" Width="93" Background="#993E3EE8" Foreground="#FFFAFB79" Command="{Binding DeleteCommand}"/>
     </Grid>
 </UserControl>
