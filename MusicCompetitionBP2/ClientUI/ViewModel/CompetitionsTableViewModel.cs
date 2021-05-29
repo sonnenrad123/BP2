@@ -12,7 +12,7 @@ namespace ClientUI.ViewModel
     public class CompetitionsTableViewModel : BindableBase
     {
         public ObservableCollection<Common.Models.Competition> Competitions { get; set; } = new ObservableCollection<Common.Models.Competition>();
-        
+        private MainWindowViewModel mainWindow;
 
         private Common.Models.Competition selectedCompetition;
         private string nameTB = "";
@@ -24,8 +24,9 @@ namespace ClientUI.ViewModel
         public MyICommand DeleteCommand { get; set; }
         public MyICommand AddCommand { get; set; }
         public MyICommand ModifyCommand { get; set; }
-        public CompetitionsTableViewModel()
+        public CompetitionsTableViewModel(MainWindowViewModel mainWindow)
         {
+            this.mainWindow = mainWindow;
             RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
             Competitions = new ObservableCollection<Competition>(repo.RepositoryProxy.ReadCompetitions());
             DeleteCommand = new MyICommand(OnDelete, CanDelete);

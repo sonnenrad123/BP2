@@ -44,6 +44,11 @@ namespace MusicCompetitionBP2
             return repo.IsExpertRepository.Create(genreID, juryMemberJMBG);
         }
 
+        public bool AddGenreToCompetition(int genreID, int compID)
+        {
+            return repo.PossessesARepository.Create(compID, genreID);
+        }
+
         public bool AddHallReservation(int competitionID, int phID, int hallID, DateTime dATE_RES, TimeSpan sTART_TIME, TimeSpan eND_TIME)
         {
             return repo.ReserveRepository.Create(phID, competitionID, hallID, dATE_RES, sTART_TIME, eND_TIME);
@@ -74,6 +79,10 @@ namespace MusicCompetitionBP2
             return repo.OrganizeRepository.Create(competitionID, phID);
         }
 
+        public bool DeleteCompetiting(long jmbg, int compid)
+        {
+            return repo.CompetitingRepository.Remove(jmbg, compid);
+        }
 
         public bool DeleteCompetition(int iD)
         {
@@ -85,9 +94,29 @@ namespace MusicCompetitionBP2
             return repo.CompetitorRepository.Remove(JMBG);
         }
 
+        public bool DeleteEvaluation(long jmbg_jury, int id_perf)
+        {
+            return repo.EvaluateRepository.Remove(jmbg_jury,id_perf);
+        }
+
+        public bool DeleteExpertise(long jmbg_jury, int gid)
+        {
+            return repo.IsExpertRepository.Remove(gid,jmbg_jury);
+        }
+
         public bool DeleteGenre(int iD)
         {
             return repo.GenreRepository.Remove(iD);
+        }
+
+        public bool DeleteHallReservation(int publhouseid, int compid, int hallid)
+        {
+            return repo.ReserveRepository.Remove(publhouseid, compid, hallid);
+        }
+
+        public bool DeleteHiredFor(long jmbg_jury, int compid)
+        {
+            return repo.HiredForRepository.Remove(jmbg_jury, compid);
         }
 
         public bool DeleteJuryMember(long JMBG)
@@ -100,9 +129,19 @@ namespace MusicCompetitionBP2
             return repo.MusicPerformanceRepository.Remove(iD);
         }
 
+        public bool DeleteOrganization(int publhouseid, int compid)
+        {
+            return repo.OrganizeRepository.Remove(compid, publhouseid);
+        }
+
         public bool DeletePerformanceHall(int iD)
         {
             return repo.PerformanceHallRepository.Remove(iD);
+        }
+
+        public bool DeletePossessA(int gid, int compid)
+        {
+            return repo.PossessesARepository.Remove(compid, gid);
         }
 
         public bool DeletePublishingHouse(int iD)
@@ -153,6 +192,11 @@ namespace MusicCompetitionBP2
             return repo.HiredForRepository.Create(juryMemberJMBG, competitionID);
         }
 
+        public IEnumerable<Common.Models.Competiting> ReadCompetitings()
+        {
+            return repo.CompetitingRepository.ReadAll();
+        }
+
         public Common.Models.Competition ReadCompetition(int iD)
         {
             return repo.CompetitionRepository.Read(iD);
@@ -173,6 +217,21 @@ namespace MusicCompetitionBP2
             return repo.CompetitorRepository.ReadAll();
         }
 
+        public IEnumerable<Common.Models.HiredFor> ReadEngagemenets()
+        {
+            return repo.HiredForRepository.ReadAll();
+        }
+
+        public IEnumerable<Common.Models.Evaluate> ReadEvaluations()
+        {
+            return repo.EvaluateRepository.ReadAll();
+        }
+
+        public IEnumerable<Common.Models.IsExpert> ReadExpertises()
+        {
+            return repo.IsExpertRepository.ReadAll();
+        }
+
         public Common.Models.Genre ReadGenre(int iD)
         {
             return repo.GenreRepository.Read(iD);
@@ -181,6 +240,11 @@ namespace MusicCompetitionBP2
         public IEnumerable<Common.Models.Genre> ReadGenres()
         {
             return repo.GenreRepository.ReadAll();
+        }
+
+        public IEnumerable<Common.Models.Reserve> ReadHallReservations()
+        {
+            return repo.ReserveRepository.ReadAll();
         }
 
         public Common.Models.JuryMember ReadJuryMember(long JMBG)
@@ -203,6 +267,11 @@ namespace MusicCompetitionBP2
             return repo.MusicPerformanceRepository.ReadAll();
         }
 
+        public IEnumerable<Common.Models.Organize> ReadOrganizations()
+        {
+            return repo.OrganizeRepository.ReadAll();
+        }
+
         public Common.Models.PerformanceHall ReadPerformanceHall(int iD)
         {
             return repo.PerformanceHallRepository.Read(iD);
@@ -211,6 +280,11 @@ namespace MusicCompetitionBP2
         public IEnumerable<Common.Models.PerformanceHall> ReadPerformanceHalls()
         {
             return repo.PerformanceHallRepository.ReadAll();
+        }
+
+        public IEnumerable<Common.Models.PossessesA> ReadPossessATable()
+        {
+            return repo.PossessesARepository.ReadAll();
         }
 
         public Common.Models.PublishingHouse ReadPublishingHouse(int iD)

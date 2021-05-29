@@ -96,7 +96,7 @@ namespace MusicCompetitionBP2.Repositories
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return false;
             }

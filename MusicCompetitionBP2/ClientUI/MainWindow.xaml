@@ -46,6 +46,27 @@
         <DataTemplate DataType="{x:Type viewModel:MusicPerformancesTableViewModel}">
             <views:MusicPerformancesTableView></views:MusicPerformancesTableView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:CompetitingsTableViewModel}">
+            <views:CompetitingsTableView></views:CompetitingsTableView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:PossessesATableViewModel}">
+            <views:PossessesATableView></views:PossessesATableView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:EvaluationsTableViewModel}">
+            <views:EvaluationsTableView></views:EvaluationsTableView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:IsExpertTableViewModel}">
+            <views:IsExpertTableView></views:IsExpertTableView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:HiredForTableViewModel}">
+            <views:HiredForTableView></views:HiredForTableView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:OrganizationsTableViewModel}">
+            <views:OrganizationsTableView></views:OrganizationsTableView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:ReservationsTableViewModel}">
+            <views:ReservationsTableView></views:ReservationsTableView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>

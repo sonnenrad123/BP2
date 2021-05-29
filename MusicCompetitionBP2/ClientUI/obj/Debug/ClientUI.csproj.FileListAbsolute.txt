@@ -33,3 +33,17 @@ D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\GenresTabl
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\MusicPerformancesTableView.baml
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PerformanceHallsTableView.baml
 D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PublishingHousesTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\CompetitingsTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\CompetitingsTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PossessesATableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\PossessesATableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\EvaluationsTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\EvaluationsTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\IsExpertTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\IsExpertTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\HiredForTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\HiredForTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\OrganizationsTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\OrganizationsTableView.baml
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\ReservationsTableView.g.cs
+D:\Projekti2020-2021\BP2\MusicCompetitionBP2\ClientUI\obj\Debug\Views\ReservationsTableView.baml

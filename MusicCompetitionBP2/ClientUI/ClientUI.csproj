@@ -59,22 +59,41 @@
     <Compile Include="RepositoryCommunicationProvider.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValidationErrors.cs" />
+    <Compile Include="ViewModel\CompetitingsTableViewModel.cs" />
     <Compile Include="ViewModel\CompetitionsTableViewModel.cs" />
     <Compile Include="ViewModel\CompetitorsTableViewModel.cs" />
+    <Compile Include="ViewModel\EvaluationsTableViewModel.cs" />
     <Compile Include="ViewModel\GenresTableViewModel.cs" />
+    <Compile Include="ViewModel\HiredForTableViewModel.cs" />
+    <Compile Include="ViewModel\IsExpertTableViewModel.cs" />
     <Compile Include="ViewModel\JuryMembersTableViewModel.cs" />
     <Compile Include="ViewModel\MainMenuViewModel.cs" />
     <Compile Include="ViewModel\MusicPerformancesTableViewModel.cs" />
+    <Compile Include="ViewModel\OrganizationsTableViewModel.cs" />
     <Compile Include="ViewModel\PerformanceHallsTableViewModel.cs" />
+    <Compile Include="ViewModel\PossessesATableViewModel.cs" />
     <Compile Include="ViewModel\PublishingHousesTableViewModel.cs" />
+    <Compile Include="ViewModel\ReservationsTableViewModel.cs" />
+    <Compile Include="Views\CompetitingsTableView.xaml.cs">
+      <DependentUpon>CompetitingsTableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CompetitionsTableView.xaml.cs">
       <DependentUpon>CompetitionsTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CompetitorsTableView.xaml.cs">
       <DependentUpon>CompetitorsTableView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EvaluationsTableView.xaml.cs">
+      <DependentUpon>EvaluationsTableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GenresTableView.xaml.cs">
       <DependentUpon>GenresTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HiredForTableView.xaml.cs">
+      <DependentUpon>HiredForTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IsExpertTableView.xaml.cs">
+      <DependentUpon>IsExpertTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\JuryMembersView.xaml.cs">
       <DependentUpon>JuryMembersView.xaml</DependentUpon>
@@ -85,11 +104,20 @@
     <Compile Include="Views\MusicPerformancesTableView.xaml.cs">
       <DependentUpon>MusicPerformancesTableView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\OrganizationsTableView.xaml.cs">
+      <DependentUpon>OrganizationsTableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PerformanceHallsTableView.xaml.cs">
       <DependentUpon>PerformanceHallsTableView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PossessesATableView.xaml.cs">
+      <DependentUpon>PossessesATableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PublishingHousesTableView.xaml.cs">
       <DependentUpon>PublishingHousesTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReservationsTableView.xaml.cs">
+      <DependentUpon>ReservationsTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -106,6 +134,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CompetitingsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CompetitionsTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,7 +146,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EvaluationsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GenresTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HiredForTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\IsExpertTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,11 +174,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\OrganizationsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PerformanceHallsTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PossessesATableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PublishingHousesTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReservationsTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

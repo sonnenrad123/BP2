@@ -71,7 +71,7 @@ namespace ClientUI
                     CurrentViewModel = new JuryMembersTableViewModel();
                     break;
                 case "Competitions":
-                    CurrentViewModel = new CompetitionsTableViewModel();
+                    CurrentViewModel = new CompetitionsTableViewModel(this);
                     break;
                 case "Genres":
                     CurrentViewModel = new GenresTableViewModel();
@@ -85,6 +85,28 @@ namespace ClientUI
                 case "MusicPerformances":
                     CurrentViewModel = new MusicPerformancesTableViewModel();
                     break;
+                case "Competitings":
+                    CurrentViewModel = new CompetitingsTableViewModel();
+                    break;
+                case "PossessesA":
+                    CurrentViewModel = new PossessesATableViewModel();
+                    break;
+                case "Evaluations":
+                    CurrentViewModel = new EvaluationsTableViewModel();
+                    break;
+                case "IsExpertSet":
+                    CurrentViewModel = new IsExpertTableViewModel();
+                    break;
+                case "Engagements":
+                    CurrentViewModel = new HiredForTableViewModel();
+                    break;
+                case "Organizations":
+                    CurrentViewModel = new OrganizationsTableViewModel();
+                    break;
+                case "Reservations":
+                    CurrentViewModel = new ReservationsTableViewModel();
+                    break;
+
             }
         }
     }

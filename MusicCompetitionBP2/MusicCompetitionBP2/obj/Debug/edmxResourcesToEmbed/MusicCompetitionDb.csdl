@@ -356,7 +356,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompetitingMusicPerformance">
-    <End Type="MusicCompetitionDb.Competiting" Role="Competiting" Multiplicity="0..1" />
+    <End Type="MusicCompetitionDb.Competiting" Role="Competiting" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Type="MusicCompetitionDb.MusicPerformance" Role="MusicPerformance" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competiting">
