@@ -31,6 +31,7 @@ namespace ClientUI.ViewModel
 
         public MyICommand DeleteCommand { get; set; }
         public MyICommand AddCommand { get; set; }
+        public MyICommand ModifyCommand { get; set; }
 
         public ReservationsTableViewModel()
         {
@@ -43,6 +44,7 @@ namespace ClientUI.ViewModel
 
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
             AddCommand = new MyICommand(OnAdd, CanAdd);
+            ModifyCommand = new MyICommand(OnModify, CanModify);
 
             foreach (Common.Models.PublishingHouse ph in PublishingHouses)
             {
@@ -58,6 +60,36 @@ namespace ClientUI.ViewModel
             OnPropertyChanged("PerformanceHallStrings");
         }
 
+        private bool CanModify()
+        {
+            if(selectedReservation != null && selectedReservation.Organize.CompetitionID_COMP.ToString() == selectedCompetition && selectedReservation.OrganizePublishingHouseID_PH.ToString() == selectedPublishingHouse && selectedReservation.PerformanceHallID_HALL.ToString()==selectedPerformanceHall)
+            {
+                int stm = -1;
+                int sth = -1;
+                int eth = -1;
+                int etm = -1;
+                if (int.TryParse(StartTimeHoursTB, out sth) && int.TryParse(StartTimeMinutesTB, out stm) && int.TryParse(EndTimeHoursTB, out eth) && int.TryParse(EndTimeMinutesTB, out etm))
+                {
+                    if (PublishingHouseStrings.Contains(selectedPublishingHouse) && ReservationDP != null && CompetitionStrings.Contains(selectedCompetition) && PerformanceHallStrings.Contains(selectedPerformanceHall) && stm >= 0 && stm <= 60 && etm >= 0 && etm <= 60 && sth >= 0 && sth < 24 && eth >= 0 && eth < 24)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         public Common.Models.Reserve SelectedReservation
         {
@@ -67,8 +99,23 @@ namespace ClientUI.ViewModel
             }
             set
             {
+                
+
                 selectedReservation = value;
+                if(selectedReservation != null)
+                {
+                    SelectedPublishingHouse = selectedReservation.OrganizePublishingHouseID_PH.ToString();
+                    SelectedCompetition = selectedReservation.OrganizeCompetitionID_COMP.ToString();
+                    SelectedPerformanceHall = selectedReservation.PerformanceHallID_HALL.ToString();
+                    ReservationDP = selectedReservation.DATE_RES;
+                    EndTimeMinutesTB = selectedReservation.END_TIME.Minutes.ToString();
+                    EndTimeHoursTB = selectedReservation.END_TIME.Hours.ToString();
+                    StartTimeHoursTB = selectedReservation.START_TIME.Hours.ToString();
+                    StartTimeMinutesTB = selectedReservation.START_TIME.Minutes.ToString();
+
+                }
                 DeleteCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -100,8 +147,8 @@ namespace ClientUI.ViewModel
                 OnPropertyChanged("SelectedPublishingHouse");
 
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
 
-                
             }
         }
 
@@ -116,6 +163,7 @@ namespace ClientUI.ViewModel
                 selectedCompetition = value;
                 OnPropertyChanged("SelectedCompetition");
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -130,15 +178,16 @@ namespace ClientUI.ViewModel
                 selectedPerformanceHall = value;
                 OnPropertyChanged("SelectedPerformanceHall");
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
-        public string StartTimeHoursTB { get => startTimeHoursTB; set { startTimeHoursTB = value; OnPropertyChanged("StartTimeHoursTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string StartTimeMinutesTB { get => startTimeMinutesTB; set { startTimeMinutesTB = value; OnPropertyChanged("StartTimeMinutesTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string EndTimeHoursTB { get => endTimeHoursTB; set { endTimeHoursTB = value; OnPropertyChanged("EndTimeHoursTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string EndTimeMinutesTB { get => endTimeMinutesTB; set { endTimeMinutesTB = value; OnPropertyChanged("EndTimeMinutesTB"); AddCommand.RaiseCanExecuteChanged(); } }
+        public string StartTimeHoursTB { get => startTimeHoursTB; set { startTimeHoursTB = value; OnPropertyChanged("StartTimeHoursTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string StartTimeMinutesTB { get => startTimeMinutesTB; set { startTimeMinutesTB = value; OnPropertyChanged("StartTimeMinutesTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string EndTimeHoursTB { get => endTimeHoursTB; set { endTimeHoursTB = value; OnPropertyChanged("EndTimeHoursTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string EndTimeMinutesTB { get => endTimeMinutesTB; set { endTimeMinutesTB = value; OnPropertyChanged("EndTimeMinutesTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
 
-        public DateTime ReservationDP { get => reservationDP; set { reservationDP = value; OnPropertyChanged("ReservationDP"); AddCommand.RaiseCanExecuteChanged(); } }
+        public DateTime ReservationDP { get => reservationDP; set { reservationDP = value; OnPropertyChanged("ReservationDP"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
 
         private bool CanAdd()
         {
@@ -162,6 +211,30 @@ namespace ClientUI.ViewModel
                 return false;
             }
 
+
+
+        }
+
+
+        private void OnModify()
+        {
+            int stm = -1;
+            int sth = -1;
+            int eth = -1;
+            int etm = -1;
+
+
+            if (int.TryParse(StartTimeHoursTB, out sth) && int.TryParse(StartTimeMinutesTB, out stm) && int.TryParse(EndTimeHoursTB, out eth) && int.TryParse(EndTimeMinutesTB, out etm))
+            {
+                RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+                repo.RepositoryProxy.EditReservation(new Common.Models.Reserve(ReservationDP, new TimeSpan(sth, stm, 0), new TimeSpan(eth, etm, 0), selectedReservation.OrganizePublishingHouseID_PH, selectedReservation.OrganizeCompetitionID_COMP, selectedReservation.PerformanceHallID_HALL, selectedReservation.Organize, selectedReservation.PerformanceHall));
+                RefreshTable();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("There was a problem! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
 
         }

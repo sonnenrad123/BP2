@@ -79,6 +79,14 @@ namespace MusicCompetitionBP2.Repositories
             });
             return ret;
         }
+
+        public void Update(Common.Models.Reserve ph)
+        {
+            var temp = dbContext.Reservations.FirstOrDefault((x) => x.OrganizeCompetitionID_COMP == ph.OrganizeCompetitionID_COMP && x.OrganizePublishingHouseID_PH == ph.OrganizePublishingHouseID_PH && ph.PerformanceHallID_HALL == x.PerformanceHallID_HALL);
+            dbContext.Entry(temp).CurrentValues.SetValues(ph);
+            dbContext.SaveChanges();
+        }
+
         ~ReserveRepository()
         {
             dbContext.Dispose();

@@ -53,5 +53,7 @@ namespace Common.Interfaces
         bool DeleteOrganization(int publhouseid,int compid);
         [OperationContract]
         bool DeleteHallReservation(int publhouseid,int compid,int hallid);
+        [OperationContract]
+        void EditReservation(Common.Models.Reserve r);
     }
 }

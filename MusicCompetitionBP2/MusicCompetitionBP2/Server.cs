@@ -185,7 +185,10 @@ namespace MusicCompetitionBP2
             repo.PublishingHouseRepository.Update(ph);
         }
 
-        
+        public void EditReservation(Common.Models.Reserve r)
+        {
+            repo.ReserveRepository.Update(r);
+        }
 
         public bool HireSingerForCompetition(long juryMemberJMBG, int competitionID)
         {
