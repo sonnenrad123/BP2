@@ -74,6 +74,7 @@
     <Compile Include="ViewModel\PossessesATableViewModel.cs" />
     <Compile Include="ViewModel\PublishingHousesTableViewModel.cs" />
     <Compile Include="ViewModel\ReservationsTableViewModel.cs" />
+    <Compile Include="ViewModel\SingersTableViewModel.cs" />
     <Compile Include="Views\CompetitingsTableView.xaml.cs">
       <DependentUpon>CompetitingsTableView.xaml</DependentUpon>
     </Compile>
@@ -118,6 +119,9 @@
     </Compile>
     <Compile Include="Views\ReservationsTableView.xaml.cs">
       <DependentUpon>ReservationsTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SingersTableView.xaml.cs">
+      <DependentUpon>SingersTableView.xaml</DependentUpon>
     </Compile>
     <Compile Include="VML\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
@@ -191,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReservationsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SingersTableView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

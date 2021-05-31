@@ -148,7 +148,7 @@ namespace ClientUI.ViewModel
                     StreetTB = selectedCompetitor.ADDRESS_SIN.STREET;
                     CityTB = selectedCompetitor.ADDRESS_SIN.CITY;
                     NumberTB = selectedCompetitor.ADDRESS_SIN.HOME_NUMBER;
-
+                  
                     OnPropertyChanged("FirstNameTB");
                     OnPropertyChanged("LastNameTB");
                     OnPropertyChanged("JmbgTB");

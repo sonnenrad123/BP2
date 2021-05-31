@@ -64,6 +64,9 @@ namespace ClientUI
             akcije.Add(new Akcija("Navigacija", currentViewModel));//cuvamo prethodni view
             switch (view)
             {
+                case "Singers":
+                    CurrentViewModel = new SingersTableViewModel();
+                    break;
                 case "Competitors":
                     CurrentViewModel = new CompetitorsTableViewModel();
                     break;

@@ -67,6 +67,9 @@
         <DataTemplate DataType="{x:Type viewModel:ReservationsTableViewModel}">
             <views:ReservationsTableView></views:ReservationsTableView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:SingersTableViewModel}">
+            <views:SingersTableView></views:SingersTableView>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid>
