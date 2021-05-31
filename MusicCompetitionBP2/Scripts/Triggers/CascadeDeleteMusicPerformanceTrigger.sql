@@ -5,9 +5,10 @@ AS
 	DECLARE @MFID int;
 	SELECT @MFID = cmp.ID_PERF from deleted cmp;
 
-	DELETE FROM Evaluations
-	where MusicPerformanceID_PERF = @MFID;
 
+	DELETE FROM Evaluations
+	where MusicPerformanceID_PERF in (select ID_PERF from deleted);
+	
 	DELETE FROM MusicPerformances
-	where ID_PERF = @MFID;
+	where ID_PERF in (select ID_PERF from deleted);
 	

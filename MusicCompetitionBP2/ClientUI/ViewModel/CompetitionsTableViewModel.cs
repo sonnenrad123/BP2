@@ -37,7 +37,7 @@ namespace ClientUI.ViewModel
 
         private bool CanModify()
         {
-            return selectedCompetition!=null && NameTB != "" && int.TryParse(MaxCompetitorsTB, out int mc) && StartDateDP != null && EndDateDP != null;
+            return selectedCompetition!=null && NameTB != "" && int.TryParse(MaxCompetitorsTB, out int mc) && StartDateDP != null && EndDateDP != null && StartDateDP<=EndDateDP;
         }
 
         private void OnModify()
@@ -55,7 +55,7 @@ namespace ClientUI.ViewModel
 
         private bool CanAdd()
         {
-            return (NameTB != "" && int.TryParse(MaxCompetitorsTB, out int mc) && StartDateDP != null && EndDateDP != null);
+            return (NameTB != "" && int.TryParse(MaxCompetitorsTB, out int mc) && StartDateDP != null && EndDateDP != null && StartDateDP<=EndDateDP);
         }
 
         private void OnAdd()
@@ -120,12 +120,12 @@ namespace ClientUI.ViewModel
                 nameTB = value;
                 OnPropertyChanged("NameTB");
                 AddCommand.RaiseCanExecuteChanged();
-                
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
-        public string MaxCompetitorsTB { get => maxCompetitorsTB; set { maxCompetitorsTB = value; OnPropertyChanged("MaxCompetitorsTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public DateTime StartDateDP { get => startDateDP; set { startDateDP = value; OnPropertyChanged("StartDateDP"); AddCommand.RaiseCanExecuteChanged(); } }
-        public DateTime EndDateDP { get => endDateDP; set { endDateDP = value; OnPropertyChanged("EndDateDP"); AddCommand.RaiseCanExecuteChanged(); } }
+        public string MaxCompetitorsTB { get => maxCompetitorsTB; set { maxCompetitorsTB = value; OnPropertyChanged("MaxCompetitorsTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public DateTime StartDateDP { get => startDateDP; set { startDateDP = value; OnPropertyChanged("StartDateDP"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public DateTime EndDateDP { get => endDateDP; set { endDateDP = value; OnPropertyChanged("EndDateDP"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
 
         private void RefreshTable()
         {

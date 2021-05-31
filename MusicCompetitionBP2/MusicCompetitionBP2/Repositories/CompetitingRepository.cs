@@ -40,6 +40,17 @@ namespace MusicCompetitionBP2.Repositories
             try
             {
                 var competiting = dbContext.Competitings.FirstOrDefault((x) => x.CompetitorJMBG_SIN == CompetitorJMBG && x.CompetitionID_COMP == competitionID);
+                var mf = dbContext.MusicPerformances.FirstOrDefault((x) => x.CompetitingCompetitionID_COMP == competitionID && x.CompetitingCompetitorJMBG_SIN == CompetitorJMBG);
+
+                while (mf != null)
+                {
+                    dbContext.MusicPerformances.Remove(mf);
+                   
+                    dbContext.SaveChanges();
+                    mf = dbContext.MusicPerformances.FirstOrDefault((x) => x.CompetitingCompetitionID_COMP == competitionID && x.CompetitingCompetitorJMBG_SIN == CompetitorJMBG);
+                }
+                
+                
                 dbContext.Competitings.Remove(competiting);
                 dbContext.SaveChanges();
                 return true;

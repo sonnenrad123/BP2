@@ -47,7 +47,7 @@ namespace ClientUI.ViewModel
             foreach(Competitor cmp in Competitors)
             {
                 string ime_prezime = cmp.FIRSTNAME_SIN + " " + cmp.LASTNAME_SIN;
-                CompetitorStrings.Add(ime_prezime);
+                CompetitorStrings.Add(cmp.JMBG_SIN.ToString());
             }
 
             foreach(Competition cmp in Competitions)
@@ -86,7 +86,7 @@ namespace ClientUI.ViewModel
                     RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
 
                     Competitor competitorTemp = repo.RepositoryProxy.ReadCompetitor(selectedMusicPerformance.CompetitingCompetitorJMBG_SIN ?? default(long));
-                    SelectedCompetitor = competitorTemp.FIRSTNAME_SIN + " " + competitorTemp.LASTNAME_SIN;
+                    SelectedCompetitor = competitorTemp.JMBG_SIN.ToString();
 
                     Competition cmpTemp = repo.RepositoryProxy.ReadCompetition(SelectedMusicPerformance.CompetitingCompetitionID_COMP ?? default(int));
                     SelectedCompetition = cmpTemp.NAME_COMP;
@@ -122,7 +122,7 @@ namespace ClientUI.ViewModel
                 return false;
             }
 
-            if (OrigPerfTB == "" || SongAuthorTB == "" || songNameTB == "" || selectedCompetition != selectedMusicPerformance.Competiting.Competition.NAME_COMP || selectedGenre != selectedMusicPerformance.Genre.GENRE_NAME || selectedCompetitor != string.Format("{0} {1}", selectedMusicPerformance.Competiting.Competitor.FIRSTNAME_SIN, selectedMusicPerformance.Competiting.Competitor.LASTNAME_SIN))
+            if (OrigPerfTB == "" || SongAuthorTB == "" || songNameTB == "" || selectedCompetition != selectedMusicPerformance.Competiting.Competition.NAME_COMP || selectedGenre != selectedMusicPerformance.Genre.GENRE_NAME || selectedCompetitor != selectedMusicPerformance.CompetitingCompetitorJMBG_SIN.ToString())
             {
                 AllOkey = false;
             }
@@ -146,7 +146,7 @@ namespace ClientUI.ViewModel
             }
             foreach (Competitor cmp in Competitors)
             {
-                if (selectedCompetitor == (cmp.FIRSTNAME_SIN + " " + cmp.LASTNAME_SIN))
+                if (selectedCompetitor == (cmp.JMBG_SIN.ToString()))
                 {
                     competitorId = cmp.JMBG_SIN;
                 }
@@ -202,7 +202,7 @@ namespace ClientUI.ViewModel
             int genreID = -1;
             foreach (Competitor cmp in Competitors)
             {
-                if(selectedCompetitor == (cmp.FIRSTNAME_SIN + " " + cmp.LASTNAME_SIN))
+                if(selectedCompetitor == cmp.JMBG_SIN.ToString())
                 {
                     competitorId = cmp.JMBG_SIN;
                 }
@@ -259,9 +259,9 @@ namespace ClientUI.ViewModel
 
 
 
-        public string OrigPerfTB { get => origPerfTB; set { origPerfTB = value; OnPropertyChanged("OrigPerfTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string SongAuthorTB { get => songAuthorTB; set { songAuthorTB = value; OnPropertyChanged("SongAuthorTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string SongNameTB { get => songNameTB; set { songNameTB = value; OnPropertyChanged("SongNameTB"); AddCommand.RaiseCanExecuteChanged(); } }
+        public string OrigPerfTB { get => origPerfTB; set { origPerfTB = value; OnPropertyChanged("OrigPerfTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string SongAuthorTB { get => songAuthorTB; set { songAuthorTB = value; OnPropertyChanged("SongAuthorTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string SongNameTB { get => songNameTB; set { songNameTB = value; OnPropertyChanged("SongNameTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
         public string SelectedCompetitor { get => selectedCompetitor; set { selectedCompetitor = value; OnPropertyChanged("SelectedCompetitorTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
         public string SelectedCompetition { get => selectedCompetition; set { selectedCompetition = value; OnPropertyChanged("SelectedCompetitionTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
         public string SelectedGenre { get => selectedGenre; set { selectedGenre = value; OnPropertyChanged("SelectedGenreTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); }  }

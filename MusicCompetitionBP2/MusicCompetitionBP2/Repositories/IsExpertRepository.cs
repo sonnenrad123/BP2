@@ -35,6 +35,16 @@ namespace MusicCompetitionBP2.Repositories
             try
             {
                 var exp = dbContext.IsExpertSet.FirstOrDefault((x) => x.GenreID_GENRE == idGenre && x.JuryMemberJMBG_SIN == JMBG);
+
+                var ev = dbContext.Evaluations.FirstOrDefault((x) => x.IsExpertJuryMemberJMBG_SIN == JMBG && x.IsExpertGenreID_GENRE == idGenre);
+                while (ev != null)
+                {
+                    dbContext.Evaluations.Remove(ev);
+                    dbContext.SaveChanges();
+                    ev = dbContext.Evaluations.FirstOrDefault((x) => x.IsExpertJuryMemberJMBG_SIN == JMBG && x.IsExpertGenreID_GENRE == idGenre);
+                }
+
+
                 dbContext.IsExpertSet.Remove(exp);
                 dbContext.SaveChanges();
                 return true;

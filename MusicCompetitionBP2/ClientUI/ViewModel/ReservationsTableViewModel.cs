@@ -72,7 +72,27 @@ namespace ClientUI.ViewModel
                 {
                     if (PublishingHouseStrings.Contains(selectedPublishingHouse) && ReservationDP != null && CompetitionStrings.Contains(selectedCompetition) && PerformanceHallStrings.Contains(selectedPerformanceHall) && stm >= 0 && stm <= 60 && etm >= 0 && etm <= 60 && sth >= 0 && sth < 24 && eth >= 0 && eth < 24)
                     {
-                        return true;
+
+                        if(sth < eth)
+                        {
+                            return true;
+                        }
+                        else if(sth == eth)
+                        {
+                            if(stm < etm)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                        
                     }
                     else
                     {
@@ -199,7 +219,25 @@ namespace ClientUI.ViewModel
             {
                 if (PublishingHouseStrings.Contains(selectedPublishingHouse) && ReservationDP != null && CompetitionStrings.Contains(selectedCompetition) && PerformanceHallStrings.Contains(selectedPerformanceHall) && stm>=0 && stm<=60 && etm >= 0 && etm <= 60 && sth >= 0 && sth < 24 && eth >= 0 && eth < 24)
                 {
-                    return true;
+                    if (sth < eth)
+                    {
+                        return true;
+                    }
+                    else if (sth == eth)
+                    {
+                        if (stm < etm)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
                 else
                 {

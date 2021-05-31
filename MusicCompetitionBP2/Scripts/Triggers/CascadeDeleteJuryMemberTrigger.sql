@@ -8,13 +8,13 @@ AS
 
 
 	DELETE FROM HiredForSet
-	where JuryMemberJMBG_SIN = @JuryMemberJMBG;
+	where JuryMemberJMBG_SIN in (select JMBG_SIN from deleted);
 
 	DELETE FROM Evaluations
-	where IsExpertJuryMemberJMBG_SIN = @JuryMemberJMBG;
+	where IsExpertJuryMemberJMBG_SIN in (select JMBG_SIN from deleted);
 
 	DELETE FROM IsExpertSet
-	where JuryMemberJMBG_SIN = @JuryMemberJMBG;
+	where JuryMemberJMBG_SIN in (select JMBG_SIN from deleted);
 
 	DELETE FROM Singers_JuryMember
-	where JMBG_SIN = @JuryMemberJMBG
+	where JMBG_SIN in (select JMBG_SIN from deleted)

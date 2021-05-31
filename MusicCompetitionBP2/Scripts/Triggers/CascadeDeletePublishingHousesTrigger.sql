@@ -7,10 +7,10 @@ as
 	select @PhID = cmp.ID_PH from deleted cmp;
 
 	delete from Reservations
-	where OrganizePublishingHouseID_PH = @PhID;
+	where OrganizePublishingHouseID_PH in (select ID_PH from deleted);
 
 	delete from Organizations
-	where PublishingHouseID_PH = @PhID;
+	where PublishingHouseID_PH in (select ID_PH from deleted);
 
 	delete from PublishingHouses
-	where ID_PH = @PhID;
+	where ID_PH in (select ID_PH from deleted);

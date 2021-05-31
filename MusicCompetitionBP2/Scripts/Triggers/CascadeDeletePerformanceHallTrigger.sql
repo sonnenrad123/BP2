@@ -7,7 +7,7 @@ as
 	select @PhID = cmp.ID_HALL from deleted cmp;
 
 	delete from Reservations
-	where PerformanceHallID_HALL = @PhID;
+	where PerformanceHallID_HALL in (select ID_HALL from deleted);
 
 	delete from PerformanceHalls
-	where ID_HALL = @PhID;
+	where ID_HALL in (select ID_HALL from deleted);

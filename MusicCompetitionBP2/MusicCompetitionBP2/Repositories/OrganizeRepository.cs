@@ -33,6 +33,18 @@ namespace MusicCompetitionBP2.Repositories
             try
             {
                 var org = dbContext.Organizations.FirstOrDefault((x) => x.CompetitionID_COMP == idComp && x.PublishingHouseID_PH == phID);
+                var reserv = dbContext.Reservations.FirstOrDefault((x) => x.OrganizeCompetitionID_COMP == idComp && x.OrganizePublishingHouseID_PH == phID);
+
+                while (reserv != null)
+                {
+                    dbContext.Reservations.Remove(reserv);
+                    dbContext.SaveChanges();
+                    reserv = dbContext.Reservations.FirstOrDefault((x) => x.OrganizeCompetitionID_COMP == idComp && x.OrganizePublishingHouseID_PH == phID);
+                }
+
+
+
+
                 dbContext.Organizations.Remove(org);
                 dbContext.SaveChanges();
                 return true;

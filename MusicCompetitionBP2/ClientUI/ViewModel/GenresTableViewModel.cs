@@ -91,7 +91,7 @@ namespace ClientUI.ViewModel
         }
 
 
-        public string NameTB { get => nameTB; set { nameTB = value; OnPropertyChanged("NameTB"); AddCommand.RaiseCanExecuteChanged(); } }
+        public string NameTB { get => nameTB; set { nameTB = value; OnPropertyChanged("NameTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
         private void RefreshTable()
         {
             RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
