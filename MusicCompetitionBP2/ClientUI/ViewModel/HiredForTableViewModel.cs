@@ -130,7 +130,7 @@ namespace ClientUI.ViewModel
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("There was a problem! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Windows.MessageBox.Show("There was a problem choose another JMBG and ID! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }

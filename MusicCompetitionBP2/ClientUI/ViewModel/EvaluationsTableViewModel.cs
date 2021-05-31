@@ -27,6 +27,7 @@ namespace ClientUI.ViewModel
 
         public MyICommand DeleteCommand { get; set; }
         public MyICommand AddCommand { get; set; }
+        public MyICommand ModifyCommand { get; set; }
 
         public EvaluationsTableViewModel()
         {
@@ -38,8 +39,9 @@ namespace ClientUI.ViewModel
 
             DeleteCommand = new MyICommand(OnDelete, CanDelete);
             AddCommand = new MyICommand(OnAdd, CanAdd);
+            ModifyCommand = new MyICommand(OnModify, CanModify);
 
-            foreach(Common.Models.MusicPerformance mf in MusicPerformances)
+            foreach (Common.Models.MusicPerformance mf in MusicPerformances)
             {
                 MusicPerformanceStrings.Add(mf.ID_PERF.ToString());
             }
@@ -59,9 +61,49 @@ namespace ClientUI.ViewModel
             set
             {
                 selectedEvaluation = value;
+                if(selectedEvaluation != null)
+                {
+                    SelectedJuryMember = selectedEvaluation.IsExpertJuryMemberJMBG_SIN.ToString();
+                    SelectedMusicPerformance = selectedEvaluation.MusicPerformanceID_PERF.ToString();
+                    MarkTB = selectedEvaluation.MARK.ToString();
+                    CommentTB = selectedEvaluation.COMMENT.ToString();
+                }
                 DeleteCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
+
+
+        private bool CanModify()
+        {
+            if(selectedEvaluation != null && selectedJuryMember == selectedEvaluation.IsExpertJuryMemberJMBG_SIN.ToString() && selectedMusicPerformance == selectedEvaluation.MusicPerformanceID_PERF.ToString())
+            {
+                int mark = -1;
+                if (int.TryParse(MarkTB, out mark))
+                {
+                    if (JuryMemberStrings.Contains(SelectedJuryMember) && MusicPerformanceStrings.Contains(SelectedMusicPerformance) && CommentTB != "" && mark > 0 && mark < 11)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+     
+
+
 
         public string SelectedMusicPerformance
         {
@@ -98,6 +140,7 @@ namespace ClientUI.ViewModel
                     OnPropertyChanged("SelectedMusicPerformance");
                 }
                 AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
 
             }
         }
@@ -112,11 +155,13 @@ namespace ClientUI.ViewModel
             {
                 selectedJuryMember = value;
                 OnPropertyChanged("SelectedJuryMember");
+                AddCommand.RaiseCanExecuteChanged();
+                ModifyCommand.RaiseCanExecuteChanged();
             }
         }
 
-        public string MarkTB { get => markTB; set { markTB = value; OnPropertyChanged("MarkTB"); AddCommand.RaiseCanExecuteChanged(); } }
-        public string CommentTB { get => commentTB; set { commentTB = value; OnPropertyChanged("CommentTB"); AddCommand.RaiseCanExecuteChanged(); } }
+        public string MarkTB { get => markTB; set { markTB = value; OnPropertyChanged("MarkTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string CommentTB { get => commentTB; set { commentTB = value; OnPropertyChanged("CommentTB"); AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
 
         private bool CanAdd()
         {
@@ -141,6 +186,38 @@ namespace ClientUI.ViewModel
             
         }
 
+        private void OnModify()
+        {
+            if (selectedEvaluation != null && selectedJuryMember == selectedEvaluation.IsExpertJuryMemberJMBG_SIN.ToString() && selectedMusicPerformance == selectedEvaluation.MusicPerformanceID_PERF.ToString())
+            {
+                int mark = -1;
+                if (int.TryParse(MarkTB, out mark))
+                {
+                    if (JuryMemberStrings.Contains(SelectedJuryMember) && MusicPerformanceStrings.Contains(SelectedMusicPerformance) && CommentTB != "" && mark > 0 && mark < 11)
+                    {
+                        RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();
+                        repo.RepositoryProxy.EditEvaluation((short)mark, CommentTB, long.Parse(selectedJuryMember), int.Parse(selectedMusicPerformance));
+                        RefreshTable();
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Mark must be in range [1,10]! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+
+                    System.Windows.MessageBox.Show("Mark must be a number! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+
+                System.Windows.MessageBox.Show("There was a problem! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+
 
         private void OnAdd()
         {
@@ -163,7 +240,7 @@ namespace ClientUI.ViewModel
                         else
                         {
 
-                            System.Windows.MessageBox.Show("There was a problem! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            System.Windows.MessageBox.Show("Evaluation for that performance already exists! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                             return;
 
                         }

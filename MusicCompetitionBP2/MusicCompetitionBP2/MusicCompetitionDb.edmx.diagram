@@ -10,12 +10,12 @@
         <InheritanceConnector EntityType="MusicCompetitionDb.Competitor" />
         <EntityTypeShape EntityType="MusicCompetitionDb.JuryMember" Width="1.5" PointX="14.875" PointY="3.25" />
         <InheritanceConnector EntityType="MusicCompetitionDb.JuryMember" />
-        <EntityTypeShape EntityType="MusicCompetitionDb.Competition" Width="1.5" PointX="6.625" PointY="2.875" />
+        <EntityTypeShape EntityType="MusicCompetitionDb.Competition" Width="1.5" PointX="6.75" PointY="2.5" />
         <EntityTypeShape EntityType="MusicCompetitionDb.Genre" Width="1.5" PointX="6.5" PointY="8.625" />
         <EntityTypeShape EntityType="MusicCompetitionDb.MusicPerformance" Width="1.5" PointX="9.875" PointY="6.5" />
         <EntityTypeShape EntityType="MusicCompetitionDb.PublishingHouse" Width="1.5" PointX="2.625" PointY="0.875" />
         <EntityTypeShape EntityType="MusicCompetitionDb.PerformanceHall" Width="1.5" PointX="1.5" PointY="6.375" />
-        <EntityTypeShape EntityType="MusicCompetitionDb.Competiting" Width="1.5" PointX="10.125" PointY="3.125" />
+        <EntityTypeShape EntityType="MusicCompetitionDb.Competiting" Width="1.5" PointX="9.5" PointY="2.875" />
         <AssociationConnector Association="MusicCompetitionDb.CompetitorCompetiting" />
         <AssociationConnector Association="MusicCompetitionDb.CompetitionCompetiting" />
         <EntityTypeShape EntityType="MusicCompetitionDb.Organize" Width="1.5" PointX="4.5" PointY="1.75" />

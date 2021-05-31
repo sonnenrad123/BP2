@@ -258,7 +258,7 @@ namespace ClientUI.ViewModel
                     }
                     else
                     {
-                        System.Windows.MessageBox.Show("There was a problem! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        System.Windows.MessageBox.Show("There was a problem. Choose another IDs! Please, try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return;
                     }
                 }

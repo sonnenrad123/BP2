@@ -160,6 +160,11 @@ namespace MusicCompetitionBP2
             repo.CompetitorRepository.Update(c);
         }
 
+        public void EditEvaluation(short ocena, string komentar, long juryJMBG, int idPerf)
+        {
+            repo.EvaluateRepository.Update(ocena, komentar, juryJMBG, idPerf);
+        }
+
         public void EditGenre(Common.Models.Genre g)
         {
             repo.GenreRepository.Update(g);

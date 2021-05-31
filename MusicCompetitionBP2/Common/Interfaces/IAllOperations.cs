@@ -55,5 +55,7 @@ namespace Common.Interfaces
         bool DeleteHallReservation(int publhouseid,int compid,int hallid);
         [OperationContract]
         void EditReservation(Common.Models.Reserve r);
+        [OperationContract]
+        void EditEvaluation(short ocena, string komentar, long juryJMBG, int idPerf);
     }
 }
