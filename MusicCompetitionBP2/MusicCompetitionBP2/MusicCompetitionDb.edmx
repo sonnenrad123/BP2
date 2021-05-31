@@ -235,9 +235,7 @@
     <Property Name="JMBG_SIN" Type="bigint" Nullable="false" />
   </EntityType>
   <Association Name="CompetitorCompetiting">
-    <End Role="Competitor" Type="MusicCompetitionDb.Store.Singers_Competitor" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Competitor" Type="MusicCompetitionDb.Store.Singers_Competitor" Multiplicity="1" />
     <End Role="Competiting" Type="MusicCompetitionDb.Store.Competitings" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competitor">
@@ -249,9 +247,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompetitionCompetiting">
-    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1" />
     <End Role="Competiting" Type="MusicCompetitionDb.Store.Competitings" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
@@ -263,9 +259,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PublishingHouseOrganize">
-    <End Role="PublishingHouse" Type="MusicCompetitionDb.Store.PublishingHouses" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="PublishingHouse" Type="MusicCompetitionDb.Store.PublishingHouses" Multiplicity="1" />
     <End Role="Organize" Type="MusicCompetitionDb.Store.Organizations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PublishingHouse">
@@ -277,9 +271,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompetitionOrganize">
-    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1" />
     <End Role="Organize" Type="MusicCompetitionDb.Store.Organizations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
@@ -291,9 +283,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="JuryMemberHiredFor">
-    <End Role="JuryMember" Type="MusicCompetitionDb.Store.Singers_JuryMember" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="JuryMember" Type="MusicCompetitionDb.Store.Singers_JuryMember" Multiplicity="1" />
     <End Role="HiredFor" Type="MusicCompetitionDb.Store.HiredForSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="JuryMember">
@@ -305,9 +295,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompetitionHiredFor">
-    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1" />
     <End Role="HiredFor" Type="MusicCompetitionDb.Store.HiredForSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
@@ -319,9 +307,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CompetitionPossessesA">
-    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Competition" Type="MusicCompetitionDb.Store.Competitions" Multiplicity="1" />
     <End Role="PossessesA" Type="MusicCompetitionDb.Store.PossessesASet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Competition">
@@ -333,9 +319,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="GenrePossessesA">
-    <End Role="Genre" Type="MusicCompetitionDb.Store.Genres" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Genre" Type="MusicCompetitionDb.Store.Genres" Multiplicity="1" />
     <End Role="PossessesA" Type="MusicCompetitionDb.Store.PossessesASet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Genre">
@@ -347,9 +331,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="JuryMemberIsExpert">
-    <End Role="JuryMember" Type="MusicCompetitionDb.Store.Singers_JuryMember" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="JuryMember" Type="MusicCompetitionDb.Store.Singers_JuryMember" Multiplicity="1" />
     <End Role="IsExpert" Type="MusicCompetitionDb.Store.IsExpertSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="JuryMember">
@@ -361,9 +343,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="GenreIsExpert">
-    <End Role="Genre" Type="MusicCompetitionDb.Store.Genres" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Genre" Type="MusicCompetitionDb.Store.Genres" Multiplicity="1" />
     <End Role="IsExpert" Type="MusicCompetitionDb.Store.IsExpertSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Genre">
@@ -390,9 +370,7 @@
   </Association>
   <Association Name="MusicPerformanceGenre">
     <End Role="MusicPerformance" Type="MusicCompetitionDb.Store.MusicPerformances" Multiplicity="*" />
-    <End Role="Genre" Type="MusicCompetitionDb.Store.Genres" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Genre" Type="MusicCompetitionDb.Store.Genres" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Genre">
         <PropertyRef Name="ID_GENRE" />
@@ -417,9 +395,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="MusicPerformanceEvaluate">
-    <End Role="MusicPerformance" Type="MusicCompetitionDb.Store.MusicPerformances" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="MusicPerformance" Type="MusicCompetitionDb.Store.MusicPerformances" Multiplicity="1" />
     <End Role="Evaluate" Type="MusicCompetitionDb.Store.Evaluations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="MusicPerformance">
@@ -431,9 +407,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="OrganizeReserve">
-    <End Role="Organize" Type="MusicCompetitionDb.Store.Organizations" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="Organize" Type="MusicCompetitionDb.Store.Organizations" Multiplicity="1" />
     <End Role="Reserve" Type="MusicCompetitionDb.Store.Reservations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Organize">
@@ -447,9 +421,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="PerformanceHallReserve">
-    <End Role="PerformanceHall" Type="MusicCompetitionDb.Store.PerformanceHalls" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
+    <End Role="PerformanceHall" Type="MusicCompetitionDb.Store.PerformanceHalls" Multiplicity="1" />
     <End Role="Reserve" Type="MusicCompetitionDb.Store.Reservations" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PerformanceHall">
@@ -667,7 +639,6 @@
         </EntityType>
         <Association Name="CompetitorCompetiting">
           <End Type="MusicCompetitionDb.Competitor" Role="Competitor" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Competiting" Role="Competiting" Multiplicity="*" />
           <ReferentialConstraint>
@@ -681,7 +652,6 @@
         </Association>
         <Association Name="CompetitionCompetiting">
           <End Type="MusicCompetitionDb.Competition" Role="Competition" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Competiting" Role="Competiting" Multiplicity="*" />
           <ReferentialConstraint>
@@ -706,7 +676,6 @@
         </EntityType>
         <Association Name="PublishingHouseOrganize">
           <End Type="MusicCompetitionDb.PublishingHouse" Role="PublishingHouse" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Organize" Role="Organize" Multiplicity="*" >
           </End>
@@ -721,7 +690,6 @@
         </Association>
         <Association Name="CompetitionOrganize">
           <End Type="MusicCompetitionDb.Competition" Role="Competition" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Organize" Role="Organize" Multiplicity="*" />
           <ReferentialConstraint>
@@ -745,7 +713,6 @@
         </EntityType>
         <Association Name="JuryMemberHiredFor">
           <End Type="MusicCompetitionDb.JuryMember" Role="JuryMember" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.HiredFor" Role="HiredFor" Multiplicity="*" >
           </End>
@@ -760,7 +727,6 @@
         </Association>
         <Association Name="CompetitionHiredFor">
           <End Type="MusicCompetitionDb.Competition" Role="Competition" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.HiredFor" Role="HiredFor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -784,7 +750,6 @@
         </EntityType>
         <Association Name="CompetitionPossessesA">
           <End Type="MusicCompetitionDb.Competition" Role="Competition" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.PossessesA" Role="PossessesA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -798,7 +763,6 @@
         </Association>
         <Association Name="GenrePossessesA">
           <End Type="MusicCompetitionDb.Genre" Role="Genre" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.PossessesA" Role="PossessesA" Multiplicity="*" />
           <ReferentialConstraint>
@@ -823,7 +787,6 @@
         </EntityType>
         <Association Name="JuryMemberIsExpert">
           <End Type="MusicCompetitionDb.JuryMember" Role="JuryMember" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.IsExpert" Role="IsExpert" Multiplicity="*" >
           </End>
@@ -838,7 +801,6 @@
         </Association>
         <Association Name="GenreIsExpert">
           <End Type="MusicCompetitionDb.Genre" Role="Genre" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.IsExpert" Role="IsExpert" Multiplicity="*" />
           <ReferentialConstraint>
@@ -852,7 +814,6 @@
         </Association>
         <Association Name="CompetitingMusicPerformance">
           <End Type="MusicCompetitionDb.Competiting" Role="Competiting" Multiplicity="0..1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.MusicPerformance" Role="MusicPerformance" Multiplicity="*" />
           <ReferentialConstraint>
@@ -870,7 +831,6 @@
           <End Type="MusicCompetitionDb.MusicPerformance" Role="MusicPerformance" Multiplicity="*" >
           </End>
           <End Type="MusicCompetitionDb.Genre" Role="Genre" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <ReferentialConstraint>
             <Principal Role="Genre">
@@ -912,7 +872,6 @@
         </Association>
         <Association Name="MusicPerformanceEvaluate">
           <End Type="MusicCompetitionDb.MusicPerformance" Role="MusicPerformance" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Evaluate" Role="Evaluate" Multiplicity="*" >
           </End>
@@ -942,7 +901,6 @@
         </EntityType>
         <Association Name="OrganizeReserve">
           <End Type="MusicCompetitionDb.Organize" Role="Organize" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Reserve" Role="Reserve" Multiplicity="*" >
           </End>
@@ -959,7 +917,6 @@
         </Association>
         <Association Name="PerformanceHallReserve">
           <End Type="MusicCompetitionDb.PerformanceHall" Role="PerformanceHall" Multiplicity="1" >
-            <OnDelete Action="Cascade" />
           </End>
           <End Type="MusicCompetitionDb.Reserve" Role="Reserve" Multiplicity="*" >
           </End>

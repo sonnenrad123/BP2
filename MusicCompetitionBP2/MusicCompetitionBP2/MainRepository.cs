@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace MusicCompetitionBP2
     public class MainRepository
     {
         private readonly MusicCompetitionDbContext DbContext;
+
+
 
         public CompetitingRepository CompetitingRepository { get; }
         public CompetitionRepository CompetitionRepository { get; }
@@ -29,6 +32,9 @@ namespace MusicCompetitionBP2
         public MainRepository(MusicCompetitionDbContext dbc)
         {
             DbContext = dbc;
+           
+            
+            
             CompetitingRepository = new CompetitingRepository(DbContext);
             CompetitionRepository = new CompetitionRepository(DbContext);
             CompetitorRepository = new CompetitorRepository(DbContext);
@@ -48,6 +54,7 @@ namespace MusicCompetitionBP2
         ~MainRepository()
         {
             DbContext.Dispose();
+            
         }
     }
 }

@@ -113,10 +113,10 @@ namespace ClientUI.ViewModel
             }
         }
 
+        
 
-
-        public string NameTB { get => nameTB; set => nameTB = value; }
-        public string CapacityTB { get => capacityTB; set => capacityTB = value; }
+        public string NameTB { get => nameTB; set { nameTB = value; AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
+        public string CapacityTB { get => capacityTB; set { capacityTB = value; AddCommand.RaiseCanExecuteChanged(); ModifyCommand.RaiseCanExecuteChanged(); } }
         private void RefreshTable()
         {
             RepositoryCommunicationProvider repo = new RepositoryCommunicationProvider();

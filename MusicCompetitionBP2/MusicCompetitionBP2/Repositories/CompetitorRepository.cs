@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,17 +88,25 @@ namespace MusicCompetitionBP2.Repositories
                 }
                 if (s.Type == "Competitor")
                 {
-                    dbContext.Singers.Remove(s);
-                    dbContext.SaveChanges();
+                    using (var sqlLogFile = new StreamWriter("LogFile.txt"))
+                    {
+                        dbContext.Database.Log = sqlLogFile.Write;
+                        dbContext.Singers.Remove(s);
+                        dbContext.SaveChanges();
+                    }
+                    
+                   
                     return true;
                 }
                 else
                 {
+                    
                     return false;
                 }
             }
             catch (Exception e)
             {
+                
                 return false;
             }
         }
