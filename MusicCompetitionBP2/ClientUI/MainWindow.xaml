@@ -82,7 +82,7 @@
         </Grid>
         <StackPanel Grid.Row="1"  VerticalAlignment="Bottom" >
             <Button x:Name="HomeBtn" Content="Main menu" Height="29" Background="#993E3EE8" Foreground="#FFFAFB79" Command="{Binding BackToHome}" />
-            <Button x:Name="BackBtn" Content="Back" Height="28" Background="#993E3EE8" Foreground="#FFFAFB79" Command="{Binding}" />
+            <Button x:Name="BackBtn" Content="Back" Height="28" Background="#993E3EE8" Foreground="#FFFAFB79" Command="{Binding BackToHome}" />
         </StackPanel>
     </Grid>
 </Window>

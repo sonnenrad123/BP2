@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 05/31/2021 17:30:57
+-- Date Created: 06/01/2021 13:02:10
 -- Generated from EDMX file: D:\Projekti2020-2021\BP2\MusicCompetitionBP2\MusicCompetitionBP2\MusicCompetitionDb.edmx
 -- --------------------------------------------------
 
